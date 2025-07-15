@@ -1,15 +1,18 @@
 /* Base Styles */
 :root {
-    --bg-dark: #121218;
-    --bg-darker: #0a0a12;
-    --bg-light: #1a1a24;
-    --primary: #00b3ff;
-    --primary-dark: #0099e0;
-    --secondary: #6c63ff;
-    --accent: #ff4d7e;
-    --text: #e6e6e6;
-    --text-light: #b8b8b8;
-    --text-lighter: #8a8a8a;
+    /* Updated to match Roblox Inspire colors */
+    --bg-dark: #0f0f1a;         /* Dark blue background */
+    --bg-darker: #0a0a12;       /* Even darker blue */
+    --bg-light: #1a1a2e;        /* Slightly lighter card backgrounds */
+    --primary: #00b3ff;         /* Bright Roblox blue */
+    --primary-dark: #0099e0;     /* Slightly darker blue */
+    --secondary: #6c63ff;        /* Purple accent */
+    --accent: #ff4d7e;           /* Pink accent for badges */
+    --text: #e6e6e6;             /* White text */
+    --text-light: #b8b8b8;       /* Light gray text */
+    --text-lighter: #8a8a8a;     /* Even lighter text */
+    
+    /* Rest of the variables remain the same */
     --white: #ffffff;
     --black: #000000;
     --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -18,7 +21,6 @@
     --border-radius-sm: 4px;
     --section-padding: 5rem 0;
 }
-
 * {
     margin: 0;
     padding: 0;
