@@ -1,68 +1,88 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // View option toggle
-    const viewOptions = document.querySelectorAll('.view-option');
-    viewOptions.forEach(option => {
-        option.addEventListener('click', function() {
-            viewOptions.forEach(opt => opt.classList.remove('active'));
-            this.classList.add('active');
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
             
-            // Here you would implement the actual view change logic
-            const viewType = this.dataset.view;
-            console.log(`Switching to ${viewType} view`);
+            window.scrollTo({
+                top: targetElement.offsetTop - 80,
+                behavior: 'smooth'
+            });
+            
+            // Update active link
+            document.querySelectorAll('.nav-link').forEach(navLink => {
+                navLink.classList.remove('active');
+            });
+            this.classList.add('active');
         });
     });
-
-    // Bookmark toggle
-    const bookmarkButtons = document.querySelectorAll('.session-bookmark');
-    bookmarkButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const icon = this.querySelector('i');
-            if (icon.classList.contains('far')) {
-                icon.classList.remove('far');
-                icon.classList.add('fas');
-                this.style.color = '#0066cc';
-            } else {
-                icon.classList.remove('fas');
-                icon.classList.add('far');
-                this.style.color = '#999';
+    
+    // Highlight current section in navigation
+    window.addEventListener('scroll', function() {
+        const scrollPosition = window.scrollY;
+        
+        document.querySelectorAll('section').forEach(section => {
+            const sectionTop = section.offsetTop - 100;
+            const sectionBottom = sectionTop + section.offsetHeight;
+            
+            if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                const id = section.getAttribute('id');
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${id}`) {
+                        link.classList.add('active');
+                    }
+                });
             }
         });
     });
-
-    // Filter functionality
-    const filterSelects = document.querySelectorAll('.filter-select');
-    filterSelects.forEach(select => {
-        select.addEventListener('change', function() {
-            // Here you would implement the actual filtering logic
-            console.log(`Filter changed: ${this.id} = ${this.value}`);
-            
-            // For demo purposes, we'll just log the current filter values
-            const filters = {
-                day: document.getElementById('day-filter').value,
-                view: document.getElementById('view-filter').value,
-                stage: document.getElementById('stage-filter').value,
-                track: document.getElementById('track-filter').value
-            };
-            console.log('Current filters:', filters);
-        });
-    });
-
-    // Search functionality
-    const searchBox = document.querySelector('.search-box input');
-    const searchButton = document.querySelector('.search-box button');
     
-    function performSearch() {
-        const query = searchBox.value.trim();
-        if (query) {
-            console.log(`Searching for: ${query}`);
-            // Here you would implement the actual search functionality
-        }
+    // Form submission
+    const contactForm = document.querySelector('.contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const name = this.querySelector('input[type="text"]').value;
+            const email = this.querySelector('input[type="email"]').value;
+            const message = this.querySelector('textarea').value;
+            
+            // Here you would typically send the data to a server
+            console.log('Form submitted:', { name, email, message });
+            
+            // Show success message
+            alert('Thank you for your message! I will get back to you soon.');
+            
+            // Reset form
+            this.reset();
+        });
     }
     
-    searchButton.addEventListener('click', performSearch);
-    searchBox.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-            performSearch();
-        }
+    // Animation on scroll
+    const animateOnScroll = function() {
+        const elements = document.querySelectorAll('.skill-category, .project-card');
+        
+        elements.forEach(element => {
+            const elementPosition = element.getBoundingClientRect().top;
+            const screenPosition = window.innerHeight / 1.2;
+            
+            if (elementPosition < screenPosition) {
+                element.style.opacity = '1';
+                element.style.transform = 'translateY(0)';
+            }
+        });
+    };
+    
+    // Set initial state for animated elements
+    document.querySelectorAll('.skill-category, .project-card').forEach(element => {
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(20px)';
+        element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
     });
+    
+    window.addEventListener('scroll', animateOnScroll);
+    animateOnScroll(); // Run once on page load
 });
