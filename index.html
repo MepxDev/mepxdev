@@ -1,1 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEPXDEV Events</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="event-container">
+        <header class="event-header">
+            <div class="header-content">
+                <h1 class="event-title">MEPXDEV 2024</h1>
+                <p class="event-date">October 15-17, 2024</p>
+                <nav class="event-nav">
+                    <ul>
+                        <li><a href="#" class="active">Home</a></li>
+                        <li><a href="#">Agenda</a></li>
+                        <li><a href="#">Speakers</a></li>
+                        <li><a href="#">About</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
 
+        <div class="event-content">
+            <aside class="event-sidebar">
+                <div class="agenda-filters">
+                    <h3>Filters</h3>
+                    <div class="filter-group">
+                        <h4>Day</h4>
+                        <select id="day-filter" class="filter-select">
+                            <option value="all">All Days</option>
+                            <option value="day1">Day 1 (Oct 15)</option>
+                            <option value="day2">Day 2 (Oct 16)</option>
+                            <option value="day3">Day 3 (Oct 17)</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <h4>View</h4>
+                        <select id="view-filter" class="filter-select">
+                            <option value="stage">By Stage</option>
+                            <option value="track">By Track</option>
+                            <option value="list">List View</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <h4>Stage</h4>
+                        <select id="stage-filter" class="filter-select">
+                            <option value="all">All Stages</option>
+                            <option value="main">Main Stage</option>
+                            <option value="dev">Developer Stage</option>
+                            <option value="design">Design Stage</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <h4>Track</h4>
+                        <select id="track-filter" class="filter-select">
+                            <option value="all">All Tracks</option>
+                            <option value="tech">Technology</option>
+                            <option value="business">Business</option>
+                            <option value="creative">Creative</option>
+                        </select>
+                    </div>
+                </div>
+            </aside>
+
+            <main class="event-main">
+                <div class="agenda-controls">
+                    <div class="view-options">
+                        <button class="view-option active" data-view="list"><i class="fas fa-list"></i> List</button>
+                        <button class="view-option" data-view="grid"><i class="fas fa-th-large"></i> Grid</button>
+                    </div>
+                    <div class="search-box">
+                        <input type="text" placeholder="Search sessions...">
+                        <button><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+
+                <div class="agenda-list">
+                    <div class="agenda-day">
+                        <h3 class="day-header">Day 1 - October 15, 2024</h3>
+                        <div class="session-card">
+                            <div class="session-time">09:00 - 10:00</div>
+                            <div class="session-details">
+                                <h4 class="session-title">Opening Keynote: The Future of Development</h4>
+                                <div class="session-meta">
+                                    <span class="session-stage">Main Stage</span>
+                                    <span class="session-track">Technology</span>
+                                </div>
+                                <p class="session-description">Join our keynote speaker as they unveil the latest trends and innovations shaping the future of development.</p>
+                                <div class="session-speakers">
+                                    <span class="speaker">Alex Johnson</span>
+                                </div>
+                            </div>
+                            <button class="session-bookmark"><i class="far fa-bookmark"></i></button>
+                        </div>
+
+                        <div class="session-card">
+                            <div class="session-time">10:30 - 11:30</div>
+                            <div class="session-details">
+                                <h4 class="session-title">Advanced Web Development Techniques</h4>
+                                <div class="session-meta">
+                                    <span class="session-stage">Developer Stage</span>
+                                    <span class="session-track">Technology</span>
+                                </div>
+                                <p class="session-description">Learn cutting-edge techniques for modern web development from industry experts.</p>
+                                <div class="session-speakers">
+                                    <span class="speaker">Sam Wilson</span>,
+                                    <span class="speaker">Taylor Smith</span>
+                                </div>
+                            </div>
+                            <button class="session-bookmark"><i class="far fa-bookmark"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="agenda-day">
+                        <h3 class="day-header">Day 2 - October 16, 2024</h3>
+                        <div class="session-card">
+                            <div class="session-time">09:30 - 10:30</div>
+                            <div class="session-details">
+                                <h4 class="session-title">Design Systems for Developers</h4>
+                                <div class="session-meta">
+                                    <span class="session-stage">Design Stage</span>
+                                    <span class="session-track">Creative</span>
+                                </div>
+                                <p class="session-description">How to implement and maintain design systems in your development workflow.</p>
+                                <div class="session-speakers">
+                                    <span class="speaker">Jordan Lee</span>
+                                </div>
+                            </div>
+                            <button class="session-bookmark"><i class="far fa-bookmark"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
