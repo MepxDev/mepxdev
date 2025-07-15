@@ -3,139 +3,183 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MEPXDEV Events</title>
+    <title>MEPXDEV - Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div class="event-container">
-        <header class="event-header">
-            <div class="header-content">
-                <h1 class="event-title">MEPXDEV 2024</h1>
-                <p class="event-date">October 15-17, 2024</p>
-                <nav class="event-nav">
-                    <ul>
-                        <li><a href="#" class="active">Home</a></li>
-                        <li><a href="#">Agenda</a></li>
-                        <li><a href="#">Speakers</a></li>
-                        <li><a href="#">About</a></li>
-                    </ul>
-                </nav>
+    <div class="container">
+        <!-- Hero Section with Roblox-inspired gradient -->
+        <header class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">MEPXDEV</h1>
+                <p class="hero-subtitle">Full Stack Developer & Creative Technologist</p>
+                <div class="hero-nav">
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#skills" class="nav-link">Skills</a>
+                    <a href="#projects" class="nav-link">Projects</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
             </div>
         </header>
 
-        <div class="event-content">
-            <aside class="event-sidebar">
-                <div class="agenda-filters">
-                    <h3>Filters</h3>
-                    <div class="filter-group">
-                        <h4>Day</h4>
-                        <select id="day-filter" class="filter-select">
-                            <option value="all">All Days</option>
-                            <option value="day1">Day 1 (Oct 15)</option>
-                            <option value="day2">Day 2 (Oct 16)</option>
-                            <option value="day3">Day 3 (Oct 17)</option>
-                        </select>
-                    </div>
-                    <div class="filter-group">
-                        <h4>View</h4>
-                        <select id="view-filter" class="filter-select">
-                            <option value="stage">By Stage</option>
-                            <option value="track">By Track</option>
-                            <option value="list">List View</option>
-                        </select>
-                    </div>
-                    <div class="filter-group">
-                        <h4>Stage</h4>
-                        <select id="stage-filter" class="filter-select">
-                            <option value="all">All Stages</option>
-                            <option value="main">Main Stage</option>
-                            <option value="dev">Developer Stage</option>
-                            <option value="design">Design Stage</option>
-                        </select>
-                    </div>
-                    <div class="filter-group">
-                        <h4>Track</h4>
-                        <select id="track-filter" class="filter-select">
-                            <option value="all">All Tracks</option>
-                            <option value="tech">Technology</option>
-                            <option value="business">Business</option>
-                            <option value="creative">Creative</option>
-                        </select>
-                    </div>
+        <!-- Main Content Sections -->
+        <main class="content">
+            <!-- About Section -->
+            <section id="about" class="section">
+                <div class="section-header">
+                    <h2>About Me</h2>
+                    <div class="section-divider"></div>
                 </div>
-            </aside>
-
-            <main class="event-main">
-                <div class="agenda-controls">
-                    <div class="view-options">
-                        <button class="view-option active" data-view="list"><i class="fas fa-list"></i> List</button>
-                        <button class="view-option" data-view="grid"><i class="fas fa-th-large"></i> Grid</button>
-                    </div>
-                    <div class="search-box">
-                        <input type="text" placeholder="Search sessions...">
-                        <button><i class="fas fa-search"></i></button>
-                    </div>
-                </div>
-
-                <div class="agenda-list">
-                    <div class="agenda-day">
-                        <h3 class="day-header">Day 1 - October 15, 2024</h3>
-                        <div class="session-card">
-                            <div class="session-time">09:00 - 10:00</div>
-                            <div class="session-details">
-                                <h4 class="session-title">Opening Keynote: The Future of Development</h4>
-                                <div class="session-meta">
-                                    <span class="session-stage">Main Stage</span>
-                                    <span class="session-track">Technology</span>
-                                </div>
-                                <p class="session-description">Join our keynote speaker as they unveil the latest trends and innovations shaping the future of development.</p>
-                                <div class="session-speakers">
-                                    <span class="speaker">Alex Johnson</span>
-                                </div>
-                            </div>
-                            <button class="session-bookmark"><i class="far fa-bookmark"></i></button>
-                        </div>
-
-                        <div class="session-card">
-                            <div class="session-time">10:30 - 11:30</div>
-                            <div class="session-details">
-                                <h4 class="session-title">Advanced Web Development Techniques</h4>
-                                <div class="session-meta">
-                                    <span class="session-stage">Developer Stage</span>
-                                    <span class="session-track">Technology</span>
-                                </div>
-                                <p class="session-description">Learn cutting-edge techniques for modern web development from industry experts.</p>
-                                <div class="session-speakers">
-                                    <span class="speaker">Sam Wilson</span>,
-                                    <span class="speaker">Taylor Smith</span>
-                                </div>
-                            </div>
-                            <button class="session-bookmark"><i class="far fa-bookmark"></i></button>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>Hello! I'm a passionate developer with expertise in building modern web applications and digital experiences. With a background in both design and development, I bridge the gap between aesthetics and functionality.</p>
+                        <p>My journey in tech began when I was 12 years old, and since then I've been constantly learning and pushing the boundaries of what I can create. I specialize in JavaScript ecosystems and cloud-native applications.</p>
+                        <div class="social-links">
+                            <a href="https://github.com/mepxdev" target="_blank"><i class="fab fa-github"></i></a>
+                            <a href="https://linkedin.com/in/mepxdev" target="_blank"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://twitter.com/mepxdev" target="_blank"><i class="fab fa-twitter"></i></a>
                         </div>
                     </div>
+                    <div class="about-image">
+                        <div class="profile-image"></div>
+                    </div>
+                </div>
+            </section>
 
-                    <div class="agenda-day">
-                        <h3 class="day-header">Day 2 - October 16, 2024</h3>
-                        <div class="session-card">
-                            <div class="session-time">09:30 - 10:30</div>
-                            <div class="session-details">
-                                <h4 class="session-title">Design Systems for Developers</h4>
-                                <div class="session-meta">
-                                    <span class="session-stage">Design Stage</span>
-                                    <span class="session-track">Creative</span>
-                                </div>
-                                <p class="session-description">How to implement and maintain design systems in your development workflow.</p>
-                                <div class="session-speakers">
-                                    <span class="speaker">Jordan Lee</span>
-                                </div>
+            <!-- Skills Section -->
+            <section id="skills" class="section">
+                <div class="section-header">
+                    <h2>My Skills</h2>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Frontend</h3>
+                        <ul class="skill-list">
+                            <li>React.js</li>
+                            <li>Vue.js</li>
+                            <li>TypeScript</li>
+                            <li>HTML5/CSS3</li>
+                            <li>Tailwind CSS</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Backend</h3>
+                        <ul class="skill-list">
+                            <li>Node.js</li>
+                            <li>Express</li>
+                            <li>Python</li>
+                            <li>Django</li>
+                            <li>GraphQL</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>DevOps & Cloud</h3>
+                        <ul class="skill-list">
+                            <li>AWS</li>
+                            <li>Docker</li>
+                            <li>Kubernetes</li>
+                            <li>CI/CD</li>
+                            <li>Terraform</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Other</h3>
+                        <ul class="skill-list">
+                            <li>UI/UX Design</li>
+                            <li>Game Development</li>
+                            <li>Blockchain</li>
+                            <li>Three.js</li>
+                            <li>WebGL</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section id="projects" class="section">
+                <div class="section-header">
+                    <h2>Featured Projects</h2>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-image" style="background-image: url('https://via.placeholder.com/400x225')"></div>
+                        <div class="project-content">
+                            <h3>Interactive 3D Portfolio</h3>
+                            <p>A WebGL-powered portfolio with interactive 3D elements and animations.</p>
+                            <div class="project-tech">
+                                <span>Three.js</span>
+                                <span>React</span>
+                                <span>GSAP</span>
                             </div>
-                            <button class="session-bookmark"><i class="far fa-bookmark"></i></button>
+                            <a href="#" class="project-link">View Project</a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image" style="background-image: url('https://via.placeholder.com/400x225')"></div>
+                        <div class="project-content">
+                            <h3>E-commerce Platform</h3>
+                            <p>Full-featured online store with payment integration and admin dashboard.</p>
+                            <div class="project-tech">
+                                <span>Vue.js</span>
+                                <span>Node.js</span>
+                                <span>MongoDB</span>
+                            </div>
+                            <a href="#" class="project-link">View Project</a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-image" style="background-image: url('https://via.placeholder.com/400x225')"></div>
+                        <div class="project-content">
+                            <h3>AI Content Generator</h3>
+                            <p>Machine learning application that generates creative writing prompts.</p>
+                            <div class="project-tech">
+                                <span>Python</span>
+                                <span>TensorFlow</span>
+                                <span>Flask</span>
+                            </div>
+                            <a href="#" class="project-link">View Project</a>
                         </div>
                     </div>
                 </div>
-            </main>
-        </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="section">
+                <div class="section-header">
+                    <h2>Get In Touch</h2>
+                    <div class="section-divider"></div>
+                </div>
+                <div class="contact-content">
+                    <p>I'm currently available for freelance work and full-time opportunities. If you have a project you'd like to discuss or just want to say hi, feel free to reach out!</p>
+                    <form class="contact-form">
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p>&copy; 2024 MEPXDEV. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </footer>
     </div>
 
     <script src="main.js"></script>
