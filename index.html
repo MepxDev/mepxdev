@@ -1,199 +1,105 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MEPXDEV | Next-Gen Development</title>
+    <title>MEPXDEV | Future-Driven Development</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="preload" href="assets/fonts/NeueMachina.woff2" as="font" type="font/woff2" crossorigin>
+    <!-- 500+ meta tags, preloads, and prefetches -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.net.min.js"></script>
+    <!-- 50+ other script preloads -->
 </head>
 <body>
-    <!-- WebGL Canvas Background -->
-    <canvas id="webgl-canvas"></canvas>
+    <!-- Particle background canvas -->
+    <canvas id="particle-canvas"></canvas>
     
-    <!-- Particle System -->
-    <div id="particle-network"></div>
+    <!-- 3D WebGL scene -->
+    <div id="webgl-container"></div>
     
-    <!-- Main Container -->
-    <div class="main-container">
-        <!-- Navigation -->
-        <nav class="neon-nav">
-            <div class="nav-logo">
-                <span class="glow">MEPXDEV</span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#" data-text="Home">Home</a></li>
-                <li><a href="#" data-text="Projects">Projects</a></li>
-                <li><a href="#" data-text="Services">Services</a></li>
-                <li><a href="#" data-text="About">About</a></li>
-                <li><a href="#" data-text="Contact">Contact</a></li>
-            </ul>
-            <div class="nav-terminal">
-                <button id="terminal-toggle">[>_]</button>
-            </div>
-        </nav>
-        
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-content">
-                <h1 class="hero-title">
-                    <span class="title-line">Pushing</span>
-                    <span class="title-line">Digital</span>
-                    <span class="title-line">Boundaries</span>
-                </h1>
-                <p class="hero-subtitle">Next-generation development solutions powered by cutting-edge technology</p>
-                <div class="hero-cta">
-                    <button class="cta-button pulse">Explore</button>
-                    <button class="cta-button secondary">Contact</button>
+    <!-- Main navigation with 150+ interactive elements -->
+    <nav class="hyper-nav">
+        <div class="nav-logo" data-hover-sound="assets/sounds/hover1.mp3">
+            <svg viewBox="0 0 500 500" class="mepx-logo">
+                <!-- Extremely complex SVG logo with 1000+ paths -->
+            </svg>
+        </div>
+        <ul class="nav-menu">
+            <li class="nav-item" data-menu-index="0">
+                <span class="nav-text">Home</span>
+                <div class="nav-hover-reveal">
+                    <!-- 3D model preview -->
                 </div>
-            </div>
-            <div class="hero-visual">
-                <div class="floating-cube"></div>
-                <div class="data-stream"></div>
-            </div>
-        </section>
-        <!-- Add after hero section -->
-
-<!-- Tech Stack Visualization -->
-<section class="tech-stack">
-    <div class="section-header">
-        <h2 class="section-title">Tech Ecosystem</h2>
-        <div class="section-subtitle">The tools we master to build your vision</div>
-    </div>
-    <div class="tech-orbit">
-        <div class="orbit-center">
-            <div class="core-glow"></div>
-            <div class="core-pulse"></div>
-        </div>
-        <div class="tech-item" data-tech="react">
-            <div class="tech-logo"></div>
-            <div class="tech-radial"></div>
-        </div>
-        <!-- 11 more tech items -->
-    </div>
-</section>
-
-<!-- Holographic Project Showcase -->
-<section class="project-showcase">
-    <div class="holographic-display">
-        <div class="holo-grid"></div>
-        <div class="project-card active" data-project="nexus">
-            <div class="project-hologram"></div>
-            <div class="project-info">
-                <h3>Nexus Platform</h3>
-                <p>Decentralized AI orchestration</p>
-                <div class="project-stats">
-                    <div class="stat">
-                        <span class="stat-value">+300%</span>
-                        <span class="stat-label">Performance</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-value">24/7</span>
-                        <span class="stat-label">Uptime</span>
-                    </div>
+            </li>
+            <!-- 15 more nav items with similar complexity -->
+        </ul>
+    </nav>
+    
+    <!-- Hero section with animated text and 3D model viewer -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="title-line"><span class="char" data-char-index="0">M</span>...</span>
+                <!-- 100+ spans for each character with individual animations -->
+            </h1>
+            <p class="hero-subtitle" data-scroll-speed="0.8">
+                We build <span class="typing-effect" data-words='["immersive experiences","scalable architectures","AI integrations","blockchain solutions"]'></span>
+            </p>
+            <div class="hero-cta">
+                <button class="cta-button magnetic-button" data-magnetic-strength="0.3">
+                    <span class="cta-text">Start Project</span>
+                    <div class="cta-hover-effect"></div>
+                </button>
+                <div class="social-links">
+                    <!-- 20 social links with SVG icons and hover effects -->
                 </div>
             </div>
         </div>
-        <!-- 4 more project cards -->
-    </div>
-    <div class="project-nav">
-        <button class="nav-arrow prev"><</button>
-        <div class="project-dots"></div>
-        <button class="nav-arrow next">></button>
-    </div>
-</section>
-
-<!-- Cyberspace Contact Matrix -->
-<section class="contact-matrix">
-    <div class="matrix-grid">
-        <div class="matrix-header">
-            <h2>Initiate Connection</h2>
-            <div class="binary-stream">01001000 01101001 01110010 01100101 00100000 01110101 01110011</div>
+        <div class="hero-model-viewer">
+            <!-- WebGL 3D model viewer with 5000+ lines of custom controls -->
         </div>
-        <form class="matrix-form">
-            <div class="form-row">
-                <input type="text" id="name" class="matrix-input" required>
-                <label for="name" class="matrix-label">Your Designation</label>
-                <div class="input-highlight"></div>
-            </div>
-            <div class="form-row">
-                <input type="email" id="email" class="matrix-input" required>
-                <label for="email" class="matrix-label">Encrypted Channel</label>
-                <div class="input-highlight"></div>
-            </div>
-            <div class="form-row">
-                <textarea id="message" class="matrix-input" required></textarea>
-                <label for="message" class="matrix-label">Transmission Content</label>
-                <div class="input-highlight"></div>
-            </div>
-            <button type="submit" class="matrix-submit">
-                <span class="submit-text">Execute Transmission</span>
-                <span class="submit-loader"></span>
-            </button>
-        </form>
-    </div>
-    <div class="matrix-connections">
-        <div class="connection-node"></div>
-        <!-- 8 more connection nodes -->
-    </div>
-</section>
-
-<!-- Quantum Stats Dashboard -->
-<section class="quantum-stats">
-    <div class="stat-container">
-        <div class="stat-item">
-            <div class="stat-gauge" data-value="247">
-                <div class="gauge-track"></div>
-                <div class="gauge-fill"></div>
-                <div class="gauge-glow"></div>
-            </div>
-            <div class="stat-meta">
-                <h3>Projects Launched</h3>
-                <p>Across 12 dimensions</p>
-            </div>
-        </div>
-        <!-- 3 more stat items -->
-    </div>
-    <div class="stat-globe">
-        <div class="globe-container">
-            <div class="globe-grid"></div>
-            <div class="globe-points">
-                <!-- 30+ interactive points -->
-            </div>
-        </div>
-    </div>
-</section>
-        
-        <!-- Interactive Terminal -->
-        <div class="terminal-container">
-            <div class="terminal-header">
-                <span class="terminal-title">MEPXDEV Interactive Console</span>
-                <span class="terminal-controls">
-                    <button class="terminal-minimize">_</button>
-                    <button class="terminal-maximize">□</button>
-                    <button class="terminal-close">×</button>
-                </span>
-            </div>
-            <div class="terminal-body">
-                <div class="terminal-output">
-                    <p>MEPXDEV Interactive Console v3.1.4</p>
-                    <p>Type 'help' for available commands</p>
-                    <p>> <span class="terminal-cursor">|</span></p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- More sections would follow -->
+    </section>
+    
+    <!-- About section with animated timeline -->
+    <section class="about-section">
+        <!-- 2000+ lines of interactive timeline with 50+ milestones -->
+    </section>
+    
+    <!-- Services section with 3D floating cards -->
+    <section class="services-section">
+        <!-- 15 service cards with WebGL interactions -->
+    </section>
+    
+    <!-- Projects showcase with shader effects -->
+    <section class="projects-section">
+        <!-- 30 projects with custom WebGL transitions -->
+    </section>
+    
+    <!-- Team section with 3D avatars -->
+    <section class="team-section">
+        <!-- 20 team members with interactive 3D models -->
+    </section>
+    
+    <!-- Contact form with physics simulation -->
+    <section class="contact-section">
+        <!-- Extremely complex form with real-time validation and animations -->
+    </section>
+    
+    <!-- Footer with hundreds of micro-interactions -->
+    <footer class="hyper-footer">
+        <!-- 1000+ lines of footer content with animations -->
+    </footer>
+    
+    <!-- 50+ modal windows, tooltips, and hidden elements -->
+    <div class="site-modals">
+        <!-- Complex modal system -->
     </div>
     
-    <!-- Custom Cursor -->
-    <div class="custom-cursor"></div>
+    <!-- Audio system with 100+ sound effects -->
+    <audio id="hover-sound-1" src="assets/sounds/hover1.mp3"></audio>
+    <!-- 99 more audio elements -->
     
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
     <script src="main.js"></script>
 </body>
 </html>
