@@ -169,3 +169,355 @@ body {
 }
 
 /* More styles would follow */
+/* Tech Stack Orbit */
+.tech-stack {
+    position: relative;
+    padding: 10rem 5rem;
+    overflow: hidden;
+}
+
+.tech-orbit {
+    position: relative;
+    width: 600px;
+    height: 600px;
+    margin: 5rem auto;
+}
+
+.orbit-center {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+}
+
+.core-glow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: var(--primary);
+    filter: blur(20px);
+    opacity: 0.7;
+    animation: pulse 4s infinite alternate;
+}
+
+.core-pulse {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid var(--primary);
+    animation: ripple 4s infinite;
+}
+
+.tech-item {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-origin: 300px;
+    transition: all 0.5s ease;
+}
+
+.tech-item:hover {
+    transform: scale(1.2) translateX(0);
+    filter: drop-shadow(0 0 15px var(--primary));
+}
+
+.tech-item[data-tech="react"] {
+    transform: rotate(0deg) translateX(300px);
+    background: conic-gradient(from 180deg, #61DAFB, #61DAFB 50%, transparent 50%);
+}
+
+/* Holographic Project Showcase */
+.project-showcase {
+    background: linear-gradient(to bottom, rgba(10, 5, 30, 0.8), rgba(5, 10, 30, 0.9));
+    padding: 8rem 0;
+    position: relative;
+}
+
+.holographic-display {
+    width: 80%;
+    max-width: 1200px;
+    height: 600px;
+    margin: 0 auto;
+    perspective: 2000px;
+    position: relative;
+}
+
+.holo-grid {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(rgba(0, 240, 255, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 240, 255, 0.1) 1px, transparent 1px);
+    background-size: 40px 40px;
+    filter: blur(0.5px);
+}
+
+.project-card {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 20, 40, 0.7);
+    border: 1px solid var(--primary);
+    box-shadow: 0 0 50px rgba(0, 240, 255, 0.3);
+    transform-style: preserve-3d;
+    transition: transform 1s, opacity 1s;
+    opacity: 0;
+    display: flex;
+}
+
+.project-card.active {
+    opacity: 1;
+    transform: translateZ(0);
+}
+
+.project-hologram {
+    flex: 1;
+    background: url('hologram-bg.png') center/cover;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-hologram::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg,
+        rgba(0, 240, 255, 0.1) 0%,
+        transparent 50%,
+        rgba(255, 0, 240, 0.1) 100%
+    );
+    animation: hologramScan 8s linear infinite;
+}
+
+@keyframes hologramScan {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+}
+
+/* Cyberspace Contact Matrix */
+.contact-matrix {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 800px;
+    position: relative;
+}
+
+.matrix-grid {
+    padding: 5rem;
+    position: relative;
+    z-index: 2;
+}
+
+.binary-stream {
+    font-family: monospace;
+    color: var(--primary);
+    font-size: 1.2rem;
+    margin: 1rem 0;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid var(--primary);
+    animation: typing 10s steps(40) infinite, blink 0.5s step-end infinite;
+}
+
+.matrix-input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(0, 240, 255, 0.5);
+    width: 100%;
+    padding: 1rem 0;
+    color: white;
+    font-size: 1.2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.matrix-input:focus {
+    outline: none;
+    border-bottom-color: var(--primary);
+}
+
+.input-highlight {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    width: 0;
+    background: var(--primary);
+    transition: width 0.3s ease;
+    z-index: 1;
+}
+
+.matrix-input:focus ~ .input-highlight {
+    width: 100%;
+}
+
+.matrix-submit {
+    position: relative;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    border: none;
+    padding: 1rem 2rem;
+    color: var(--dark);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    overflow: hidden;
+    margin-top: 2rem;
+    cursor: pointer;
+}
+
+.matrix-submit::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: 0.5s;
+}
+
+.matrix-submit:hover::before {
+    left: 100%;
+}
+
+/* Quantum Stats Dashboard */
+.quantum-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 8rem 5rem;
+    background: url('quantum-bg.jpg') center/cover;
+    position: relative;
+}
+
+.quantum-stats::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(5, 10, 30, 0.9);
+    z-index: 1;
+}
+
+.stat-container {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+.stat-gauge {
+    width: 100%;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    margin: 1rem 0;
+}
+
+.gauge-fill {
+    position: absolute;
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    border-radius: 10px;
+    transition: width 2s ease-out;
+}
+
+.gauge-glow {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: var(--primary);
+    opacity: 0.3;
+    filter: blur(10px);
+}
+
+.stat-globe {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.globe-container {
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: url('world-map.png') center/cover;
+    box-shadow: 
+        0 0 60px rgba(0, 240, 255, 0.5),
+        inset 0 0 100px rgba(0, 240, 255, 0.3);
+    position: relative;
+}
+
+.globe-grid {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle, transparent 60%, rgba(0, 240, 255, 0.1) 100%),
+        linear-gradient(rgba(0, 240, 255, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 240, 255, 0.1) 1px, transparent 1px);
+    background-size: 40px 40px;
+    border-radius: 50%;
+}
+
+.globe-points {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.globe-points::before {
+    content: '';
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    top: 30%;
+    left: 45%;
+    box-shadow: 0 0 20px var(--accent);
+    animation: pulsePoint 2s infinite alternate;
+}
+
+/* More dynamic animations */
+@keyframes pulsePoint {
+    0% { transform: scale(1); opacity: 0.7; }
+    100% { transform: scale(1.5); opacity: 1; }
+}
+
+@keyframes ripple {
+    0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(1.5); opacity: 0; }
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink {
+    from, to { border-color: transparent }
+    50% { border-color: var(--primary) }
+}
