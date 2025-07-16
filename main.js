@@ -210,3 +210,244 @@ function initCustomCursor() {
 }
 
 // More initialization functions would follow
+
+// Enhanced Terminal Functionality
+const terminalCommands = {
+    // ... existing commands ...
+    
+    theme: (args) => {
+        const color = args[0];
+        const validThemes = {
+            cyber: ['#00f0ff', '#ff00f0', '#f0ff00'],
+            matrix: ['#00ff00', '#009900', '#003300'],
+            synth: ['#ff0099', '#9900ff', '#00ffcc'],
+            solar: ['#ff5500', '#ffaa00', '#ffee00']
+        };
+        
+        if (!color || !validThemes[color]) {
+            return `Invalid theme. Available: ${Object.keys(validThemes).join(', ')}`;
+        }
+        
+        document.documentElement.style.setProperty('--primary', validThemes[color][0]);
+        document.documentElement.style.setProperty('--secondary', validThemes[color][1]);
+        document.documentElement.style.setProperty('--accent', validThemes[color][2]);
+        
+        return `Theme set to ${color}`;
+    },
+    
+    deploy: () => {
+        simulateDeployment();
+        return 'Initiating quantum deployment sequence...';
+    },
+    
+    scan: () => {
+        const threats = ['None', 'Low', 'Moderate', 'Critical'];
+        const randomThreat = threats[Math.floor(Math.random() * threats.length)];
+        return `System scan complete. Threat level: ${randomThreat}`;
+    }
+};
+
+function simulateDeployment() {
+    const output = document.querySelector('.terminal-output');
+    const lines = [
+        'Compiling quantum modules...',
+        'Optimizing neural pathways...',
+        'Initializing blockchain verification...',
+        'Deploying to edge nodes...',
+        'Validating AI consensus...',
+        'Deployment complete!'
+    ];
+    
+    let i = 0;
+    const interval = setInterval(() => {
+        if (i < lines.length) {
+            output.innerHTML += `<p>> ${lines[i]}</p>`;
+            output.scrollTop = output.scrollHeight;
+            i++;
+        } else {
+            clearInterval(interval);
+            output.innerHTML += `<p>> Deployment successful. System nominal.</p>`;
+            output.scrollTop = output.scrollHeight;
+        }
+    }, 1000);
+}
+
+// Holographic Project Carousel
+function initProjectShowcase() {
+    const projects = document.querySelectorAll('.project-card');
+    const dots = document.querySelectorAll('.project-dots .dot');
+    let currentIndex = 0;
+    
+    function showProject(index) {
+        projects.forEach((project, i) => {
+            project.classList.toggle('active', i === index);
+            
+            if (i < index) {
+                project.style.transform = 'translateX(-100%) rotateY(-30deg)';
+            } else if (i > index) {
+                project.style.transform = 'translateX(100%) rotateY(30deg)';
+            } else {
+                project.style.transform = 'translateX(0) rotateY(0)';
+            }
+        });
+        
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+        });
+        
+        currentIndex = index;
+    }
+    
+    document.querySelector('.nav-arrow.next').addEventListener('click', () => {
+        showProject((currentIndex + 1) % projects.length);
+    });
+    
+    document.querySelector('.nav-arrow.prev').addEventListener('click', () => {
+        showProject((currentIndex - 1 + projects.length) % projects.length);
+    });
+    
+    // Auto-rotate every 8 seconds
+    setInterval(() => {
+        showProject((currentIndex + 1) % projects.length);
+    }, 8000);
+    
+    // Create dots dynamically
+    const dotsContainer = document.querySelector('.project-dots');
+    projects.forEach((_, i) => {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        if (i === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => showProject(i));
+        dotsContainer.appendChild(dot);
+    });
+}
+
+// Quantum Stats Animation
+function animateQuantumStats() {
+    const gauges = document.querySelectorAll('.stat-gauge');
+    
+    gauges.forEach(gauge => {
+        const value = parseInt(gauge.getAttribute('data-value'));
+        const fill = gauge.querySelector('.gauge-fill');
+        const max = parseInt(gauge.getAttribute('data-max')) || 300;
+        const percentage = Math.min(value / max * 100, 100);
+        
+        setTimeout(() => {
+            fill.style.width = `${percentage}%`;
+        }, 500);
+    });
+    
+    // Animate globe points
+    const globe = document.querySelector('.stat-globe');
+    for (let i = 0; i < 30; i++) {
+        const point = document.createElement('div');
+        point.className = 'globe-point';
+        
+        // Random position on globe
+        const lat = Math.random() * 180 - 90;
+        const lng = Math.random() * 360 - 180;
+        
+        // Convert to 3D coordinates
+        const phi = (90 - lat) * (Math.PI / 180);
+        const theta = (lng + 90) * (Math.PI / 180);
+        const radius = 200;
+        
+        const x = radius * Math.sin(phi) * Math.cos(theta);
+        const y = radius * Math.cos(phi);
+        const z = radius * Math.sin(phi) * Math.sin(theta);
+        
+        point.style.transform = `translate3d(${x}px, ${y}px, ${z}px)`;
+        
+        // Random animation
+        const delay = Math.random() * 5;
+        const duration = 2 + Math.random() * 3;
+        point.style.animation = `pulsePoint ${duration}s ${delay}s infinite alternate`;
+        
+        globe.querySelector('.globe-points').appendChild(point);
+    }
+}
+
+// Matrix Connection Animation
+function initMatrixConnections() {
+    const container = document.querySelector('.matrix-connections');
+    const nodes = container.querySelectorAll('.connection-node');
+    const canvas = document.createElement('canvas');
+    container.appendChild(canvas);
+    
+    canvas.width = container.offsetWidth;
+    canvas.height = container.offsetHeight;
+    const ctx = canvas.getContext('2d');
+    
+    // Position nodes randomly
+    nodes.forEach(node => {
+        node.style.left = `${Math.random() * 100}%`;
+        node.style.top = `${Math.random() * 100}%`;
+    });
+    
+    function drawConnections() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.strokeStyle = `rgba(0, 240, 255, 0.3)`;
+        ctx.lineWidth = 1;
+        
+        nodes.forEach(node1 => {
+            const rect1 = node1.getBoundingClientRect();
+            const x1 = rect1.left + rect1.width/2 - container.getBoundingClientRect().left;
+            const y1 = rect1.top + rect1.height/2 - container.getBoundingClientRect().top;
+            
+            nodes.forEach(node2 => {
+                if (node1 === node2) return;
+                
+                const rect2 = node2.getBoundingClientRect();
+                const x2 = rect2.left + rect2.width/2 - container.getBoundingClientRect().left;
+                const y2 = rect2.top + rect2.height/2 - container.getBoundingClientRect().top;
+                
+                const distance = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+                
+                if (distance < 300) {
+                    ctx.beginPath();
+                    ctx.moveTo(x1, y1);
+                    ctx.lineTo(x2, y2);
+                    ctx.stroke();
+                }
+            });
+        });
+        
+        requestAnimationFrame(drawConnections);
+    }
+    
+    drawConnections();
+    
+    // Make nodes interactive
+    nodes.forEach(node => {
+        node.addEventListener('mouseenter', () => {
+            node.style.transform = 'scale(1.5)';
+            node.style.boxShadow = '0 0 20px var(--primary)';
+        });
+        
+        node.addEventListener('mouseleave', () => {
+            node.style.transform = 'scale(1)';
+            node.style.boxShadow = '0 0 10px var(--primary)';
+        });
+    });
+}
+
+// Initialize all new components
+document.addEventListener('DOMContentLoaded', () => {
+    // ... existing initializations ...
+    
+    initProjectShowcase();
+    animateQuantumStats();
+    initMatrixConnections();
+    
+    // Activate gauge animations when scrolled into view
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateQuantumStats();
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    observer.observe(document.querySelector('.quantum-stats'));
+});
