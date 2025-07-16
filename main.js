@@ -1,98 +1,212 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Mobile Navigation
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
+// Main Application
+document.addEventListener('DOMContentLoaded', () => {
+    // Initialize all components
+    initWebGLBackground();
+    initParticleNetwork();
+    initNeonEffects();
+    initTerminal();
+    initCustomCursor();
+    initAnimations();
+    initVoiceInteraction();
+    initDynamicContent();
+    initShaderEffects();
+    initPerformanceMonitor();
+});
+
+// WebGL Background
+function initWebGLBackground() {
+    const canvas = document.getElementById('webgl-canvas');
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
     
-    hamburger.addEventListener('click', function() {
-        this.classList.toggle('active');
-        navLinks.classList.toggle('active');
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    camera.position.z = 5;
+    
+    // Create complex geometry
+    const geometry = new THREE.IcosahedronGeometry(2, 5);
+    const material = new THREE.MeshStandardMaterial({ 
+        color: 0x00f0ff,
+        emissive: 0x00aaff,
+        emissiveIntensity: 0.5,
+        metalness: 0.8,
+        roughness: 0.2
     });
     
-    // Close mobile menu when clicking a link
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            navLinks.classList.remove('active');
+    const mesh = new THREE.Mesh(geometry, material);
+    scene.add(mesh);
+    
+    // Add lights
+    const ambientLight = new THREE.AmbientLight(0x404040);
+    scene.add(ambientLight);
+    
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+    directionalLight.position.set(1, 1, 1);
+    scene.add(directionalLight);
+    
+    // Animation loop
+    function animate() {
+        requestAnimationFrame(animate);
+        mesh.rotation.x += 0.005;
+        mesh.rotation.y += 0.01;
+        renderer.render(scene, camera);
+    }
+    
+    animate();
+    
+    // Handle resize
+    window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+}
+
+// Particle Network
+function initParticleNetwork() {
+    const container = document.getElementById('particle-network');
+    const canvas = document.createElement('canvas');
+    container.appendChild(canvas);
+    
+    const ctx = canvas.getContext('2d');
+    canvas.width = container.offsetWidth;
+    canvas.height = container.offsetHeight;
+    
+    const particles = [];
+    const particleCount = Math.floor(window.innerWidth / 10);
+    
+    // Create particles
+    for (let i = 0; i < particleCount; i++) {
+        particles.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            size: Math.random() * 2 + 1,
+            speedX: Math.random() * 2 - 1,
+            speedY: Math.random() * 2 - 1,
+            color: `rgba(0, 240, 255, ${Math.random() * 0.5 + 0.1})`
         });
+    }
+    
+    // Animation loop
+    function animateParticles() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        // Update and draw particles
+        particles.forEach(p => {
+            p.x += p.speedX;
+            p.y += p.speedY;
+            
+            // Boundary check
+            if (p.x < 0 || p.x > canvas.width) p.speedX *= -1;
+            if (p.y < 0 || p.y > canvas.height) p.speedY *= -1;
+            
+            // Draw particle
+            ctx.fillStyle = p.color;
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+            ctx.fill();
+            
+            // Draw connections
+            particles.forEach(p2 => {
+                const distance = Math.sqrt(Math.pow(p.x - p2.x, 2) + Math.pow(p.y - p2.y, 2));
+                if (distance < 150) {
+                    ctx.strokeStyle = `rgba(0, 240, 255, ${1 - distance / 150})`;
+                    ctx.lineWidth = 0.5;
+                    ctx.beginPath();
+                    ctx.moveTo(p.x, p.y);
+                    ctx.lineTo(p2.x, p2.y);
+                    ctx.stroke();
+                }
+            });
+        });
+        
+        requestAnimationFrame(animateParticles);
+    }
+    
+    animateParticles();
+    
+    // Handle resize
+    window.addEventListener('resize', () => {
+        canvas.width = container.offsetWidth;
+        canvas.height = container.offsetHeight;
+    });
+}
+
+// Interactive Terminal
+function initTerminal() {
+    const terminal = document.querySelector('.terminal-container');
+    const toggleBtn = document.getElementById('terminal-toggle');
+    const terminalBody = document.querySelector('.terminal-body');
+    const terminalOutput = document.querySelector('.terminal-output');
+    
+    // Toggle terminal
+    toggleBtn.addEventListener('click', () => {
+        terminal.classList.toggle('active');
+        toggleBtn.classList.toggle('active');
     });
     
-    // Navbar scroll effect
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 100) {
-            navbar.classList.add('scrolled');
+    // Terminal commands
+    const commands = {
+        help: () => `
+            Available commands:<br>
+            - help: Show this help message<br>
+            - about: Learn about MEPXDEV<br>
+            - projects: List current projects<br>
+            - contact: Show contact information<br>
+            - clear: Clear the terminal<br>
+            - theme [color]: Change terminal theme<br>
+        `,
+        about: () => `
+            MEPXDEV is a cutting-edge development studio specializing in:<br>
+            - WebGL & 3D web applications<br>
+            - Interactive experiences<br>
+            - AI integration<br>
+            - Performance optimization<br>
+        `,
+        // More commands would be added
+    };
+    
+    // Process input
+    function processCommand(cmd) {
+        const parts = cmd.split(' ');
+        const baseCmd = parts[0].toLowerCase();
+        
+        if (commands[baseCmd]) {
+            return commands[baseCmd]();
         } else {
-            navbar.classList.remove('scrolled');
+            return `Command not found: ${baseCmd}. Type 'help' for available commands.`;
+        }
+    }
+    
+    // More terminal functionality would be added
+}
+
+// Custom Cursor
+function initCustomCursor() {
+    const cursor = document.querySelector('.custom-cursor');
+    
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.left = `${e.clientX}px`;
+        cursor.style.top = `${e.clientY}px`;
+        
+        // Scale effect on hover
+        const target = e.target;
+        if (target.closest('a, button')) {
+            cursor.style.transform = 'translate(-50%, -50%) scale(2)';
+            cursor.style.backgroundColor = 'var(--accent)';
+        } else {
+            cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+            cursor.style.backgroundColor = 'var(--primary)';
         }
     });
     
-    // Set current year in footer
-    const year = document.getElementById('year');
-    year.textContent = new Date().getFullYear();
-    
-    // Contact form submission
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form values
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
-            
-            // Here you would typically send the form data to a server
-            console.log('Form submitted:', { name, email, subject, message });
-            
-            // Show success message
-            alert('Thank you for your message! I will get back to you soon.');
-            
-            // Reset form
-            contactForm.reset();
-        });
-    }
-    
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop - 80,
-                    behavior: 'smooth'
-                });
-            }
-        });
+    // Click effect
+    document.addEventListener('click', () => {
+        cursor.style.transform = 'translate(-50%, -50%) scale(0.5)';
+        setTimeout(() => {
+            cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+        }, 100);
     });
-    
-    // Animation on scroll
-    function animateOnScroll() {
-        const elements = document.querySelectorAll('.skill-item, .project-card');
-        
-        elements.forEach(element => {
-            const elementPosition = element.getBoundingClientRect().top;
-            const screenPosition = window.innerHeight / 1.2;
-            
-            if (elementPosition < screenPosition) {
-                element.style.opacity = '1';
-                element.style.transform = 'translateY(0)';
-            }
-        });
-    }
-    
-    // Set initial state for animated elements
-    document.querySelectorAll('.skill-item, .project-card').forEach(element => {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(20px)';
-        element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-    });
-    
-    window.addEventListener('scroll', animateOnScroll);
-    window.addEventListener('load', animateOnScroll);
-});
+}
+
+// More initialization functions would follow
