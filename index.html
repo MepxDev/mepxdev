@@ -3,225 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>mepxdev | Web Developer</title>
+    <title>MEPXDEV | Next-Gen Development</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav id="navbar">
-        <div class="container">
-            <a href="#home" class="logo">mepx<span>dev</span></a>
+    <!-- WebGL Canvas Background -->
+    <canvas id="webgl-canvas"></canvas>
+    
+    <!-- Particle System -->
+    <div id="particle-network"></div>
+    
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Navigation -->
+        <nav class="neon-nav">
+            <div class="nav-logo">
+                <span class="glow">MEPXDEV</span>
+            </div>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#" data-text="Home">Home</a></li>
+                <li><a href="#" data-text="Projects">Projects</a></li>
+                <li><a href="#" data-text="Services">Services</a></li>
+                <li><a href="#" data-text="About">About</a></li>
+                <li><a href="#" data-text="Contact">Contact</a></li>
             </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div class="nav-terminal">
+                <button id="terminal-toggle">[>_]</button>
             </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
+        </nav>
+        
+        <!-- Hero Section -->
+        <section class="hero">
             <div class="hero-content">
-                <h1>Welcome to <span>mepxdev</span></h1>
-                <h2>Web Developer & Creator</h2>
-                <div class="hero-btns">
-                    <a href="#projects" class="btn">View Projects</a>
-                    <a href="#contact" class="btn btn-outline">Contact Me</a>
+                <h1 class="hero-title">
+                    <span class="title-line">Pushing</span>
+                    <span class="title-line">Digital</span>
+                    <span class="title-line">Boundaries</span>
+                </h1>
+                <p class="hero-subtitle">Next-generation development solutions powered by cutting-edge technology</p>
+                <div class="hero-cta">
+                    <button class="cta-button pulse">Explore</button>
+                    <button class="cta-button secondary">Contact</button>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="floating-cube"></div>
+                <div class="data-stream"></div>
+            </div>
+        </section>
+        
+        <!-- Interactive Terminal -->
+        <div class="terminal-container">
+            <div class="terminal-header">
+                <span class="terminal-title">MEPXDEV Interactive Console</span>
+                <span class="terminal-controls">
+                    <button class="terminal-minimize">_</button>
+                    <button class="terminal-maximize">□</button>
+                    <button class="terminal-close">×</button>
+                </span>
+            </div>
+            <div class="terminal-body">
+                <div class="terminal-output">
+                    <p>MEPXDEV Interactive Console v3.1.4</p>
+                    <p>Type 'help' for available commands</p>
+                    <p>> <span class="terminal-cursor">|</span></p>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title">Featured <span>Projects</span></h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-badge">New</div>
-                    <div class="project-image">
-                        <img src="https://via.placeholder.com/600x400/1a1a2e/00d1b2" alt="Interactive Dashboard">
-                    </div>
-                    <div class="project-info">
-                        <h3>Interactive Dashboard</h3>
-                        <p>Real-time data visualization with WebGL rendering</p>
-                        <div class="project-meta">
-                            <span class="project-creator">Creator @ mepxdev</span>
-                            <div class="project-tech">
-                                <span>React</span>
-                                <span>Three.js</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://via.placeholder.com/600x400/1a1a2e/00d1b2" alt="Social Platform">
-                    </div>
-                    <div class="project-info">
-                        <h3>Social Platform</h3>
-                        <p>Community-driven platform with real-time interactions</p>
-                        <div class="project-meta">
-                            <span class="project-creator">Creator @ mepxdev</span>
-                            <div class="project-tech">
-                                <span>Node.js</span>
-                                <span>GraphQL</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-badge">Experimental</div>
-                    <div class="project-image">
-                        <img src="https://via.placeholder.com/600x400/1a1a2e/00d1b2" alt="Game Prototype">
-                    </div>
-                    <div class="project-info">
-                        <h3>Game Prototype</h3>
-                        <p>Browser-based 3D game with physics engine</p>
-                        <div class="project-meta">
-                            <span class="project-creator">Creator @ mepxdev</span>
-                            <div class="project-tech">
-                                <span>Babylon.js</span>
-                                <span>WebXR</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <h2 class="section-title">My <span>Skills</span></h2>
-            <div class="skills-content">
-                <div class="skills-description">
-                    <p>Technologies I work with to create digital experiences</p>
-                </div>
-                <div class="skills-grid">
-                    <div class="skill-item">
-                        <div class="skill-icon">
-                            <i class="fab fa-js"></i>
-                        </div>
-                        <h3>JavaScript</h3>
-                        <p>Modern ES6+ development</p>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon">
-                            <i class="fab fa-react"></i>
-                        </div>
-                        <h3>React</h3>
-                        <p>Interactive UIs</p>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon">
-                            <i class="fas fa-server"></i>
-                        </div>
-                        <h3>Backend</h3>
-                        <p>Node.js & Databases</p>
-                    </div>
-                    <div class="skill-item">
-                        <div class="skill-icon">
-                            <i class="fas fa-gamepad"></i>
-                        </div>
-                        <h3>WebGL</h3>
-                        <p>3D graphics</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title">About <span>Me</span></h2>
-            <div class="about-content">
-                <div class="about-card">
-                    <h3>mepxdev</h3>
-                    <p>Creator @ Digital Experiences</p>
-                    <div class="about-social">
-                        <a href="#"><i class="fab fa-github"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                    </div>
-                </div>
-                <div class="about-text">
-                    <p>I'm a passionate developer specializing in creating interactive web experiences. With a focus on performance and user engagement, I build applications that push the boundaries of what's possible on the web.</p>
-                    <p>My approach combines technical expertise with creative problem-solving to deliver solutions that are both functional and visually stunning.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Get In <span>Touch</span></h2>
-            <div class="contact-card">
-                <h3>Let's create something amazing</h3>
-                <form id="contactForm">
-                    <div class="form-group">
-                        <input type="text" id="name" name="name" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" id="email" name="email" placeholder="Your Email" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea id="message" name="message" placeholder="Tell me about your project" required></textarea>
-                    </div>
-                    <button type="submit" class="btn">Send Message</button>
-                </form>
-                <div class="contact-info">
-                    <div class="info-item">
-                        <i class="fas fa-envelope"></i>
-                        <p>contact@mepxdev.com</p>
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <p>Digital Nomad</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <a href="#home">mepx<span>dev</span></a>
-                    <p>Creating digital experiences that matter</p>
-                </div>
-                <div class="footer-links">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#projects">Projects</a></li>
-                        <li><a href="#skills">Skills</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; <span id="year"></span> mepxdev.com. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
+        
+        <!-- More sections would follow -->
+    </div>
+    
+    <!-- Custom Cursor -->
+    <div class="custom-cursor"></div>
+    
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
     <script src="main.js"></script>
 </body>
 </html>
