@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>MepxDev – Creator & Developer</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>MepxDev – Personal Portfolio</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -11,47 +11,78 @@
     <div class="logo">Mepx<span>Dev</span></div>
     <nav>
       <ul>
+        <li><a href="#hero">Home</a></li>
         <li><a href="#about">About Me</a></li>
-        <li><a href="#work">What I Do</a></li>
-        <li><a href="https://chromastudiorbx.com" target="_blank">Chroma Studio</a></li>
+        <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li><button id="theme-toggle">Dark / Light</button></li>
       </ul>
     </nav>
   </header>
 
-  <section class="hero">
-    <div class="hero-text">
-      <h1>Hi, I'm <span>MepxDev</span></h1>
-      <p>Roblox creator, game designer, and content-driven developer from Germany.</p>
-      <a href="#work" class="btn">Explore My Work</a>
+  <section id="hero">
+    <div class="hero-content">
+      <h1>Hello, I'm <span>MepxDev</span></h1>
+      <p>17‑year‑old Roblox dev from Germany & founder of <a href="https://chromastudiorbx.com" target="_blank">Chroma Studio</a>.</p>
+      <a href="#projects" class="btn">See My Work</a>
     </div>
   </section>
 
-  <section id="about" class="about">
+  <section id="about">
     <h2>About Me</h2>
-    <p>I'm Henry, a 17-year-old Roblox developer based in Germany. I focus on creating fun, smart, and creative content for players around the world. I'm also the founder of <a href="https://chromastudiorbx.com" target="_blank">Chroma Studio</a>, where I build bigger projects with my team.</p>
-  </section>
-
-  <section id="work" class="work">
-    <h2>What I Do</h2>
-    <div class="work-grid">
-      <div class="work-item">🎮 Game Development</div>
-      <div class="work-item">🎨 UI & Visual Design</div>
-      <div class="work-item">🧠 Creative Content Creation</div>
-      <div class="work-item">🌐 Studio Leadership @ Chroma</div>
+    <div class="timeline">
+      <div class="entry">
+        <h3>2008 – Born in Germany</h3>
+        <p>Started playing Roblox early—dreamed of making games.</p>
+      </div>
+      <div class="entry">
+        <h3>2023 – First Roblox Place</h3>
+        <p>Built my first mini‑game with friends.</p>
+      </div>
+      <div class="entry">
+        <h3>2024 – Launched Chroma Studio</h3>
+        <p>Released big titles with teammates and gained traction.</p>
+      </div>
+      <div class="entry">
+        <h3>2025 – Going Global</h3>
+        <p>My game promotion network went viral in multiple languages.</p>
+      </div>
     </div>
   </section>
 
-  <section id="contact" class="contact">
-    <h2>Contact</h2>
-    <p>Want to collaborate or have a question? DM me on Discord: <strong>@mepxdev</strong> or email me at <strong>mepxdev@gmail.com</strong>.</p>
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project-list">
+      <div class="card">
+        <h3>Grow a Garden‑style simulator</h3>
+        <p>A fast‑growing Roblox tycoon game with upgrade systems & monetization.</p>
+      </div>
+      <div class="card">
+        <h3>UI Kits & Visual Builds</h3>
+        <p>Designed polished menu systems or HUDs for Roblox experiences.</p>
+      </div>
+      <div class="card upcoming">
+        <h3>Coming Soon: New Title</h3>
+        <p>Building a multiverse hub game launching this Winter.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form id="contact-form">
+      <label>Name <input type="text" name="name" required /></label>
+      <label>Email <input type="email" name="email" required /></label>
+      <label>Message <textarea name="message" rows="4" required></textarea></label>
+      <button type="submit">Send Message</button>
+      <div id="form-status"></div>
+    </form>
   </section>
 
   <footer>
-    <p>&copy; 2025 MepxDev – Built with ❤️ in Germany</p>
+    <p>© 2025 MepxDev – Crafted with 💡 & code in Germany.</p>
   </footer>
 
   <script src="main.js"></script>
 </body>
 </html>
-
