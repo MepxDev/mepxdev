@@ -3,147 +3,152 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MepxDev | Roblox Developer & Digital Creator</title>
-    <meta name="description" content="Portfolio of MepxDev, a 17-year-old Roblox developer from Germany creating immersive games and digital experiences.">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="favicon.png">
-    
-    <!-- Fonts -->
+    <title>MepxDev | Roblox Developer & Creator</title>
+    <meta name="description" content="Professional Roblox developer from Germany creating immersive experiences and UGC content.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
-    <!-- Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Preloader -->
-    <div class="preloader">
-        <div class="preloader-spinner">
-            <div class="spinner-sector spinner-sector-red"></div>
-            <div class="spinner-sector spinner-sector-blue"></div>
-            <div class="spinner-sector spinner-sector-green"></div>
-        </div>
-    </div>
+    <!-- Particle Background Canvas -->
+    <canvas id="particle-canvas"></canvas>
 
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
-            <a href="#home" class="navbar-brand">Mepx<span class="text-accent">Dev</span></a>
-            
-            <button class="navbar-toggler" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            
-            <div class="navbar-collapse">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
-                    <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
-                    <li class="nav-item"><a href="#skills" class="nav-link">Skills</a></li>
-                    <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
-                    <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
-                </ul>
-                
-                <div class="theme-toggle-container">
-                    <button class="theme-toggle" aria-label="Toggle theme">
-                        <i class="fas fa-moon"></i>
+            <a href="#" class="logo" data-aos="fade-right">
+                <span class="logo-text">Mepx<span class="accent">Dev</span></span>
+                <span class="logo-glow"></span>
+            </a>
+            <div class="nav-links" data-aos="fade-left">
+                <a href="#about" class="nav-link hover-underline">About</a>
+                <a href="#skills" class="nav-link hover-underline">Skills</a>
+                <a href="#projects" class="nav-link hover-underline">Projects</a>
+                <a href="#social" class="nav-link hover-underline">Social</a>
+                <a href="#contact" class="nav-link hover-underline">Contact</a>
+                <div class="theme-toggle">
+                    <input type="checkbox" id="theme-switch" class="theme-switch">
+                    <label for="theme-switch" class="theme-label">
                         <i class="fas fa-sun"></i>
-                    </button>
+                        <i class="fas fa-moon"></i>
+                        <span class="theme-ball"></span>
+                    </label>
                 </div>
             </div>
+            <button class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero-section">
+    <section class="hero" id="home">
         <div class="container">
-            <div class="hero-content">
-                <h4 class="hero-subtitle">Welcome to my digital space</h4>
+            <div class="hero-content" data-aos="fade-up" data-aos-delay="300">
+                <h4 class="hero-subtitle">ROBLOX DEVELOPER & CREATOR</h4>
                 <h1 class="hero-title">
-                    Hi, I'm <span class="text-accent">MepxDev</span> –<br>
-                    <span class="typing-text"></span>
+                    <span class="text-gradient">I'm</span> 
+                    <span class="typing-text" data-text="MepxDev"></span>
+                    <span class="cursor">|</span>
                 </h1>
-                <p class="hero-text">Building immersive games and smart ideas.</p>
+                <h2 class="hero-description">
+                    <span class="typing-text" data-text="Building bold Roblox experiences"></span>
+                    <span class="cursor">|</span>
+                </h2>
                 <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">See My Work</a>
-                    <a href="#contact" class="btn btn-outline">Let's Talk</a>
+                    <a href="#projects" class="btn btn-primary btn-glow">
+                        <span>See Projects</span>
+                        <span class="hover-effect"></span>
+                    </a>
+                    <a href="#contact" class="btn btn-outline">
+                        <span>Hire Me</span>
+                        <span class="hover-effect"></span>
+                    </a>
                 </div>
             </div>
-            
-            <div class="hero-illustration">
-                <div class="glowing-orb"></div>
-                <div class="floating-shapes">
-                    <div class="shape shape-1"></div>
-                    <div class="shape shape-2"></div>
-                    <div class="shape shape-3"></div>
-                </div>
+            <div class="scroll-down" data-aos="fade-up" data-aos-delay="800">
+                <span class="scroll-text">Scroll Down</span>
+                <div class="scroll-arrow"></div>
             </div>
-        </div>
-        
-        <div class="scroll-indicator">
-            <div class="mouse">
-                <div class="scroller"></div>
-            </div>
-            <span>Scroll down</span>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="section about-section">
+    <section class="section about" id="about">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">About <span class="text-accent">Me</span></h2>
-                <p class="section-subtitle">Get to know the person behind the code</p>
-            </div>
-            
+            <h2 class="section-title" data-aos="fade-up">
+                <span class="accent">01.</span> About Me
+            </h2>
             <div class="about-content">
-                <div class="about-image">
+                <div class="about-image" data-aos="fade-right">
                     <div class="image-wrapper">
-                        <div class="glow-effect"></div>
-                        <img src="https://via.placeholder.com/400x400" alt="MepxDev" class="profile-img">
+                        <img src="https://via.placeholder.com/400x500/111827/cccccc?text=MepxDev" alt="MepxDev Portrait" class="profile-img">
+                        <div class="image-border"></div>
+                        <div class="image-glow"></div>
                     </div>
                 </div>
-                
-                <div class="about-text">
-                    <h3>Roblox Developer & Digital Creator from Germany</h3>
-                    <p>I'm a 17-year-old developer passionate about creating engaging experiences on the Roblox platform. My journey began when I was just 13, and since then I've been constantly learning and pushing my creative boundaries.</p>
-                    
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <div class="timeline-icon">
-                                <i class="fas fa-gamepad"></i>
-                            </div>
-                            <div class="timeline-content">
-                                <h4>Started Roblox Development</h4>
-                                <p class="timeline-date">2020</p>
-                                <p>Created my first Roblox game and fell in love with the creative possibilities of the platform.</p>
-                            </div>
+                <div class="about-text" data-aos="fade-left">
+                    <h3>Who is MepxDev?</h3>
+                    <p>Hey! I'm a 17-year-old Roblox developer from Germany with a passion for creating immersive experiences, UGC content, and pushing the boundaries of what's possible on the platform.</p>
+                    <p>Since 2019, I've been developing games and content that combine striking visuals with engaging gameplay. My work focuses on innovative UI design, atmospheric environments, and creative monetization strategies.</p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="50">0</span>+
+                            <span class="stat-label">Projects Created</span>
                         </div>
-                        
-                        <div class="timeline-item">
-                            <div class="timeline-icon">
-                                <i class="fas fa-users"></i>
-                            </div>
-                            <div class="timeline-content">
-                                <h4>Founded Chroma Studio</h4>
-                                <p class="timeline-date">2022</p>
-                                <p>Established a small development team to collaborate on more ambitious projects.</p>
-                            </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="5">0</span>M+
+                            <span class="stat-label">Total Visits</span>
                         </div>
-                        
-                        <div class="timeline-item">
-                            <div class="timeline-icon">
-                                <i class="fas fa-trophy"></i>
-                            </div>
-                            <div class="timeline-content">
-                                <h4>First Successful Game</h4>
-                                <p class="timeline-date">2023</p>
-                                <p>Released a game that reached 100,000+ visits and gained positive community feedback.</p>
-                            </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="3">0</span>+
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline" data-aos="fade-up">
+                <h3 class="timeline-title">My Journey</h3>
+                <div class="timeline-container">
+                    <div class="timeline-item">
+                        <div class="timeline-date">2019</div>
+                        <div class="timeline-content">
+                            <h4>First Steps in Roblox Studio</h4>
+                            <p>Started learning Lua scripting and basic building techniques, creating simple obstacle courses and roleplay games.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2020</div>
+                        <div class="timeline-content">
+                            <h4>First Successful Game</h4>
+                            <p>Released "Neon City Tycoon" which gained over 100,000 visits and taught me valuable lessons about game design.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2021</div>
+                        <div class="timeline-content">
+                            <h4>UI Design Focus</h4>
+                            <p>Began specializing in user interface design, creating sleek, futuristic UIs for various Roblox experiences.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2022</div>
+                        <div class="timeline-content">
+                            <h4>Chroma Studio Founded</h4>
+                            <p>Established my development studio focusing on premium Roblox experiences with cutting-edge visuals.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-date">2023</div>
+                        <div class="timeline-content">
+                            <h4>UGC Creator</h4>
+                            <p>Approved as a Roblox UGC creator, designing virtual clothing and accessories with a cyberpunk aesthetic.</p>
                         </div>
                     </div>
                 </div>
@@ -152,89 +157,76 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="section skills-section">
+    <section class="section skills" id="skills">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">My <span class="text-accent">Skills</span></h2>
-                <p class="section-subtitle">The tools and abilities I bring to every project</p>
-            </div>
-            
+            <h2 class="section-title" data-aos="fade-up">
+                <span class="accent">02.</span> My Skills
+            </h2>
             <div class="skills-grid">
-                <div class="skill-card">
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="skill-icon">
+                        <i class="fas fa-gamepad"></i>
+                        <div class="icon-glow"></div>
+                    </div>
+                    <h3 class="skill-title">Game Design</h3>
+                    <p class="skill-description">Creating engaging gameplay loops, balanced progression systems, and memorable player experiences.</p>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%"></div>
+                    </div>
+                </div>
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="skill-icon">
                         <i class="fas fa-paint-brush"></i>
+                        <div class="icon-glow"></div>
                     </div>
-                    <h3>UI/UX Design</h3>
-                    <p>Creating intuitive and visually appealing interfaces for games and applications.</p>
-                    <div class="skill-progress">
-                        <div class="progress-bar" data-width="85%">
-                            <span class="progress-text">85%</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fas fa-cubes"></i>
-                    </div>
-                    <h3>3D Building</h3>
-                    <p>Designing and constructing immersive environments and assets in Roblox Studio.</p>
-                    <div class="skill-progress">
-                        <div class="progress-bar" data-width="90%">
-                            <span class="progress-text">90%</span>
-                        </div>
+                    <h3 class="skill-title">UI/UX Design</h3>
+                    <p class="skill-description">Designing intuitive interfaces with striking visuals that enhance user experience and engagement.</p>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%"></div>
                     </div>
                 </div>
-                
-                <div class="skill-card">
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="skill-icon">
                         <i class="fas fa-code"></i>
+                        <div class="icon-glow"></div>
                     </div>
-                    <h3>Lua Scripting</h3>
-                    <p>Implementing game mechanics and systems using Lua programming language.</p>
-                    <div class="skill-progress">
-                        <div class="progress-bar" data-width="80%">
-                            <span class="progress-text">80%</span>
-                        </div>
+                    <h3 class="skill-title">Lua Scripting</h3>
+                    <p class="skill-description">Writing clean, efficient code for game mechanics, systems, and custom solutions in Roblox.</p>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 95%"></div>
                     </div>
                 </div>
-                
-                <div class="skill-card">
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="400">
                     <div class="skill-icon">
                         <i class="fas fa-tshirt"></i>
+                        <div class="icon-glow"></div>
                     </div>
-                    <h3>UGC Creation</h3>
-                    <p>Designing unique clothing and accessories for the Roblox avatar shop.</p>
-                    <div class="skill-progress">
-                        <div class="progress-bar" data-width="75%">
-                            <span class="progress-text">75%</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fas fa-video"></i>
-                    </div>
-                    <h3>Content Creation</h3>
-                    <p>Producing engaging videos and social media content about development.</p>
-                    <div class="skill-progress">
-                        <div class="progress-bar" data-width="70%">
-                            <span class="progress-text">70%</span>
-                        </div>
+                    <h3 class="skill-title">UGC Creation</h3>
+                    <p class="skill-description">Designing and modeling clothing, accessories, and gear for the Roblox avatar shop.</p>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 80%"></div>
                     </div>
                 </div>
-                
-                <div class="skill-card">
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="500">
                     <div class="skill-icon">
-                        <i class="fas fa-users"></i>
+                        <i class="fas fa-cube"></i>
+                        <div class="icon-glow"></div>
                     </div>
-                    <h3>Team Leadership</h3>
-                    <p>Managing and coordinating development teams for collaborative projects.</p>
-                    <div class="skill-progress">
-                        <div class="progress-bar" data-width="65%">
-                            <span class="progress-text">65%</span>
-                        </div>
+                    <h3 class="skill-title">3D Modeling</h3>
+                    <p class="skill-description">Creating optimized 3D assets, environments, and architectural designs for Roblox games.</p>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 75%"></div>
+                    </div>
+                </div>
+                <div class="skill-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="skill-icon">
+                        <i class="fas fa-chart-line"></i>
+                        <div class="icon-glow"></div>
+                    </div>
+                    <h3 class="skill-title">Monetization</h3>
+                    <p class="skill-description">Implementing ethical monetization strategies that provide value to players while supporting development.</p>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 70%"></div>
                     </div>
                 </div>
             </div>
@@ -242,271 +234,190 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="section projects-section">
+    <section class="section projects" id="projects">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">My <span class="text-accent">Projects</span></h2>
-                <p class="section-subtitle">A showcase of my Roblox creations and collaborations</p>
-            </div>
-            
+            <h2 class="section-title" data-aos="fade-up">
+                <span class="accent">03.</span> Featured Projects
+            </h2>
             <div class="projects-grid">
-                <div class="project-card">
+                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="project-image">
-                        <img src="https://via.placeholder.com/600x400" alt="Project 1">
+                        <img src="https://via.placeholder.com/600x400/111827/cccccc?text=Neon+City+Tycoon" alt="Neon City Tycoon">
                         <div class="project-overlay">
-                            <a href="#" class="project-link" aria-label="View project">
-                                <i class="fas fa-external-link-alt"></i>
+                            <a href="#" class="btn btn-primary btn-glow">
+                                <span>View Project</span>
+                                <span class="hover-effect"></span>
                             </a>
                         </div>
                     </div>
                     <div class="project-info">
-                        <h3>Chroma Adventures</h3>
-                        <p>An immersive RPG with unique color-based mechanics and expansive worlds.</p>
+                        <h3 class="project-title">Neon City Tycoon</h3>
+                        <p class="project-description">A cyberpunk-themed tycoon game where players build and manage futuristic businesses in a sprawling metropolis.</p>
                         <div class="project-tags">
-                            <span class="tag">RPG</span>
-                            <span class="tag">Adventure</span>
-                            <span class="tag">Team Project</span>
+                            <span class="tag">Tycoon</span>
+                            <span class="tag">UI Design</span>
+                            <span class="tag">5M+ Visits</span>
                         </div>
-                        <a href="#" class="btn btn-small">View on Roblox</a>
                     </div>
                 </div>
-                
-                <div class="project-card">
+                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="project-image">
-                        <img src="https://via.placeholder.com/600x400" alt="Project 2">
+                        <img src="https://via.placeholder.com/600x400/111827/cccccc?text=Chroma+Studios" alt="Chroma Studios">
                         <div class="project-overlay">
-                            <a href="#" class="project-link" aria-label="View project">
-                                <i class="fas fa-external-link-alt"></i>
+                            <a href="#" class="btn btn-primary btn-glow">
+                                <span>View Project</span>
+                                <span class="hover-effect"></span>
                             </a>
                         </div>
                     </div>
                     <div class="project-info">
-                        <h3>Neon Tower Defense</h3>
-                        <p>Futuristic tower defense game with customizable units and challenging waves.</p>
+                        <h3 class="project-title">Chroma Studios</h3>
+                        <p class="project-description">My development group creating premium Roblox experiences with cutting-edge visuals and gameplay.</p>
                         <div class="project-tags">
-                            <span class="tag">Strategy</span>
-                            <span class="tag">Tower Defense</span>
+                            <span class="tag">Development</span>
+                            <span class="tag">Group</span>
+                            <span class="tag">10K+ Members</span>
                         </div>
-                        <a href="#" class="btn btn-small">View on Roblox</a>
                     </div>
                 </div>
-                
-                <div class="project-card">
+                <div class="project-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="project-image">
-                        <img src="https://via.placeholder.com/600x400" alt="Project 3">
+                        <img src="https://via.placeholder.com/600x400/111827/cccccc?text=Cyber+Gear+UGC" alt="Cyber Gear UGC">
                         <div class="project-overlay">
-                            <a href="#" class="project-link" aria-label="View project">
-                                <i class="fas fa-external-link-alt"></i>
+                            <a href="#" class="btn btn-primary btn-glow">
+                                <span>View Project</span>
+                                <span class="hover-effect"></span>
                             </a>
                         </div>
                     </div>
                     <div class="project-info">
-                        <h3>Pixel Fashion</h3>
-                        <p>UGC clothing collection featuring retro pixel art designs for avatars.</p>
+                        <h3 class="project-title">Cyber Gear UGC</h3>
+                        <p class="project-description">A collection of futuristic clothing and accessories available in the Roblox avatar shop.</p>
                         <div class="project-tags">
                             <span class="tag">UGC</span>
-                            <span class="tag">Fashion</span>
-                            <span class="tag">Pixel Art</span>
+                            <span class="tag">Clothing</span>
+                            <span class="tag">50K+ Sales</span>
                         </div>
-                        <a href="#" class="btn btn-small">View Catalog</a>
                     </div>
                 </div>
-                
-                <div class="project-card">
+                <div class="project-card" data-aos="fade-up" data-aos-delay="400">
                     <div class="project-image">
-                        <img src="https://via.placeholder.com/600x400" alt="Project 4">
+                        <img src="https://via.placeholder.com/600x400/111827/cccccc?text=Neon+Racing+Legends" alt="Neon Racing Legends">
                         <div class="project-overlay">
-                            <a href="#" class="project-link" aria-label="View project">
-                                <i class="fas fa-external-link-alt"></i>
+                            <a href="#" class="btn btn-primary btn-glow">
+                                <span>View Project</span>
+                                <span class="hover-effect"></span>
                             </a>
                         </div>
                     </div>
                     <div class="project-info">
-                        <h3>Skyline Racing</h3>
-                        <p>High-speed racing game set in a futuristic city with customizable vehicles.</p>
+                        <h3 class="project-title">Neon Racing Legends</h3>
+                        <p class="project-description">High-speed racing game set in futuristic cityscapes with customizable vehicles and leaderboards.</p>
                         <div class="project-tags">
                             <span class="tag">Racing</span>
                             <span class="tag">Vehicles</span>
+                            <span class="tag">2M+ Visits</span>
                         </div>
-                        <a href="#" class="btn btn-small">View on Roblox</a>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://via.placeholder.com/600x400" alt="Project 5">
-                        <div class="project-overlay">
-                            <a href="#" class="project-link" aria-label="View project">
-                                <i class="fas fa-external-link-alt"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3>UI Framework</h3>
-                        <p>Custom UI framework for Roblox developers to create responsive interfaces.</p>
-                        <div class="project-tags">
-                            <span class="tag">Library</span>
-                            <span class="tag">UI</span>
-                            <span class="tag">Open Source</span>
-                        </div>
-                        <a href="#" class="btn btn-small">View GitHub</a>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://via.placeholder.com/600x400" alt="Project 6">
-                        <div class="project-overlay">
-                            <a href="#" class="project-link" aria-label="View project">
-                                <i class="fas fa-external-link-alt"></i>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="project-info">
-                        <h3>Mystery Mansion</h3>
-                        <p>Interactive mystery game where players solve puzzles in a haunted mansion.</p>
-                        <div class="project-tags">
-                            <span class="tag">Horror</span>
-                            <span class="tag">Puzzle</span>
-                        </div>
-                        <a href="#" class="btn btn-small">View on Roblox</a>
                     </div>
                 </div>
             </div>
-            
-            <div class="section-footer">
-                <a href="#" class="btn btn-outline">View All Projects</a>
+            <div class="section-footer" data-aos="fade-up">
+                <a href="#" class="btn btn-outline">
+                    <span>View All Projects</span>
+                    <span class="hover-effect"></span>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Socials Section -->
-    <section class="section socials-section">
+    <!-- Social Section -->
+    <section class="section social" id="social">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Let's <span class="text-accent">Connect</span></h2>
-                <p class="section-subtitle">Follow my journey and join the community</p>
+            <h2 class="section-title" data-aos="fade-up">
+                <span class="accent">04.</span> Connect With Me
+            </h2>
+            <div class="social-links" data-aos="fade-up" data-aos-delay="100">
+                <a href="#" class="social-link" data-tooltip="YouTube">
+                    <i class="fab fa-youtube"></i>
+                    <span class="link-glow"></span>
+                </a>
+                <a href="#" class="social-link" data-tooltip="Roblox">
+                    <i class="fas fa-gamepad"></i>
+                    <span class="link-glow"></span>
+                </a>
+                <a href="#" class="social-link" data-tooltip="Discord">
+                    <i class="fab fa-discord"></i>
+                    <span class="link-glow"></span>
+                </a>
+                <a href="#" class="social-link" data-tooltip="Twitter">
+                    <i class="fab fa-twitter"></i>
+                    <span class="link-glow"></span>
+                </a>
+                <a href="#" class="social-link" data-tooltip="TikTok">
+                    <i class="fab fa-tiktok"></i>
+                    <span class="link-glow"></span>
+                </a>
+                <a href="#" class="social-link" data-tooltip="GitHub">
+                    <i class="fab fa-github"></i>
+                    <span class="link-glow"></span>
+                </a>
             </div>
-            
-            <div class="socials-content">
-                <div class="socials-grid">
-                    <a href="#" class="social-card youtube" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-youtube"></i>
-                        <span>YouTube</span>
-                    </a>
-                    
-                    <a href="#" class="social-card tiktok" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-tiktok"></i>
-                        <span>TikTok</span>
-                    </a>
-                    
-                    <a href="#" class="social-card twitter" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-twitter"></i>
-                        <span>Twitter/X</span>
-                    </a>
-                    
-                    <a href="#" class="social-card discord" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-discord"></i>
-                        <span>Discord</span>
-                    </a>
-                    
-                    <a href="#" class="social-card roblox" target="_blank" rel="noopener noreferrer">
-                        <i class="fas fa-gamepad"></i>
-                        <span>Roblox</span>
-                    </a>
-                    
-                    <a href="#" class="social-card github" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-github"></i>
-                        <span>GitHub</span>
-                    </a>
-                </div>
-                
-                <div class="video-embed">
-                    <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+            <div class="youtube-section" data-aos="fade-up">
+                <h3 class="youtube-title">Latest YouTube Shorts</h3>
+                <div class="youtube-embed">
+                    <div class="embed-wrapper">
+                        <iframe src="https://www.youtube.com/embed/?listType=user_uploads&list=MepxDev" frameborder="0" allowfullscreen></iframe>
+                        <div class="embed-glow"></div>
                     </div>
-                    <p class="video-caption">Check out my latest development vlog on YouTube</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="section contact-section">
+    <section class="section contact" id="contact">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Get In <span class="text-accent">Touch</span></h2>
-                <p class="section-subtitle">Have a project in mind or want to collaborate? Let's talk!</p>
-            </div>
-            
+            <h2 class="section-title" data-aos="fade-up">
+                <span class="accent">05.</span> Get In Touch
+            </h2>
             <div class="contact-content">
-                <form id="contactForm" class="contact-form">
-                    <div class="form-group">
-                        <label for="name">Your Name</label>
-                        <input type="text" id="name" name="name" required>
-                        <div class="error-message" id="nameError"></div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" required>
-                        <div class="error-message" id="emailError"></div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" name="subject" required>
-                        <div class="error-message" id="subjectError"></div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="message">Your Message</label>
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                        <div class="error-message" id="messageError"></div>
-                    </div>
-                    
-                    <button type="submit" class="btn btn-primary">Send Message</button>
-                </form>
-                
-                <div class="contact-info">
-                    <h3>Other Ways to Reach Me</h3>
-                    
-                    <div class="info-item">
-                        <div class="info-icon">
+                <div class="contact-info" data-aos="fade-right">
+                    <h3 class="contact-subtitle">Let's Work Together</h3>
+                    <p>Have a project in mind or want to collaborate? Feel free to reach out through this form or connect with me on social media.</p>
+                    <div class="contact-details">
+                        <div class="detail-item">
                             <i class="fas fa-envelope"></i>
+                            <span>contact@mepxdev.com</span>
                         </div>
-                        <div class="info-content">
-                            <h4>Email</h4>
-                            <a href="mailto:contact@mepxdev.com">contact@mepxdev.com</a>
-                        </div>
-                    </div>
-                    
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <i class="fab fa-discord"></i>
-                        </div>
-                        <div class="info-content">
-                            <h4>Discord</h4>
-                            <span>MepxDev#1234</span>
-                        </div>
-                    </div>
-                    
-                    <div class="info-item">
-                        <div class="info-icon">
+                        <div class="detail-item">
                             <i class="fas fa-map-marker-alt"></i>
-                        </div>
-                        <div class="info-content">
-                            <h4>Location</h4>
-                            <span>Germany, UTC+1</span>
+                            <span>Based in Germany</span>
                         </div>
                     </div>
-                    
-                    <div class="working-hours">
-                        <h4>Working Hours</h4>
-                        <p>Monday - Friday: 4PM - 9PM (CET)</p>
-                        <p>Weekends: Flexible hours</p>
-                        <p class="note">*Response time may vary during school periods</p>
-                    </div>
+                </div>
+                <div class="contact-form" data-aos="fade-left">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" required>
+                            <label for="name">Your Name</label>
+                            <span class="input-border"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" required>
+                            <label for="email">Your Email</label>
+                            <span class="input-border"></span>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" rows="4" required></textarea>
+                            <label for="message">Your Message</label>
+                            <span class="input-border"></span>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-glow">
+                            <span>Send Message</span>
+                            <span class="hover-effect"></span>
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -516,64 +427,62 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-brand">
-                    <a href="#home" class="footer-logo">Mepx<span class="text-accent">Dev</span></a>
-                    <p>Creating immersive digital experiences on Roblox and beyond.</p>
+                <div class="footer-logo">
+                    <a href="#" class="logo">
+                        <span class="logo-text">Mepx<span class="accent">Dev</span></span>
+                        <span class="logo-glow"></span>
+                    </a>
                 </div>
-                
                 <div class="footer-links">
-                    <div class="links-group">
-                        <h4>Navigation</h4>
-                        <ul>
-                            <li><a href="#home">Home</a></li>
-                            <li><a href="#about">About</a></li>
-                            <li><a href="#skills">Skills</a></li>
-                            <li><a href="#projects">Projects</a></li>
-                            <li><a href="#contact">Contact</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="links-group">
-                        <h4>Resources</h4>
-                        <ul>
-                            <li><a href="#">Blog</a></li>
-                            <li><a href="#">Tutorials</a></li>
-                            <li><a href="#">Assets</a></li>
-                            <li><a href="#">FAQ</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="links-group">
-                        <h4>Legal</h4>
-                        <ul>
-                            <li><a href="#">Privacy Policy</a></li>
-                            <li><a href="#">Terms of Service</a></li>
-                            <li><a href="#">Cookie Policy</a></li>
-                        </ul>
-                    </div>
+                    <a href="#about" class="footer-link">About</a>
+                    <a href="#skills" class="footer-link">Skills</a>
+                    <a href="#projects" class="footer-link">Projects</a>
+                    <a href="#contact" class="footer-link">Contact</a>
+                </div>
+                <div class="footer-social">
+                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-discord"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
                 </div>
             </div>
-            
             <div class="footer-bottom">
-                <p class="copyright">Made with <span class="heart">💻</span> in Germany by MepxDev – 2025</p>
-                
-                <div class="footer-socials">
-                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-                    <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
-                    <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <p class="copyright">© 2025 MepxDev – Designed in Germany</p>
+                <div class="theme-toggle">
+                    <input type="checkbox" id="footer-theme-switch" class="theme-switch">
+                    <label for="footer-theme-switch" class="theme-label">
+                        <i class="fas fa-sun"></i>
+                        <i class="fas fa-moon"></i>
+                        <span class="theme-ball"></span>
+                    </label>
                 </div>
             </div>
         </div>
     </footer>
 
     <!-- Back to Top Button -->
-    <button class="back-to-top" aria-label="Back to top">
+    <a href="#home" class="back-to-top" aria-label="Back to top">
         <i class="fas fa-arrow-up"></i>
-    </button>
+    </a>
 
-    <!-- JavaScript -->
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <div class="modal-icon">
+                <i class="fas fa-check"></i>
+            </div>
+            <h3 class="modal-title">Message Sent!</h3>
+            <p class="modal-text">Thank you for reaching out. I'll get back to you as soon as possible.</p>
+            <button class="btn btn-primary btn-glow modal-close">
+                <span>Awesome!</span>
+                <span class="hover-effect"></span>
+            </button>
+            <div class="modal-glow"></div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
     <script src="main.js"></script>
 </body>
 </html>
