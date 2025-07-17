@@ -1,31 +1,43 @@
 /**
  * MepxDev Portfolio Website
- * Main JavaScript File
+ * A modern, responsive portfolio for a Roblox developer
  * 
- * This file contains all the interactive functionality for the portfolio website
- * including theme switching, form validation, animations, and more.
+ * Features:
+ * - Dark/Light theme toggle
+ * - Smooth scrolling
+ * - Form validation
+ * - Responsive navigation
+ * - Project filtering
+ * - Animations and transitions
+ * - Preloader
  */
 
-// Wait for the DOM to be fully loaded before executing JavaScript
 document.addEventListener('DOMContentLoaded', function() {
-    // ===== Preloader =====
+    // =============================================
+    //              Preloader
+    // =============================================
     const preloader = document.querySelector('.preloader');
     
-    // Hide preloader when page is loaded
     window.addEventListener('load', function() {
+        // Add fade-out class to preloader
         preloader.classList.add('fade-out');
+        
+        // Remove preloader from DOM after animation
         setTimeout(() => {
             preloader.style.display = 'none';
         }, 500);
     });
     
-    // ===== Theme Toggle =====
+    // =============================================
+    //              Theme Toggle
+    // =============================================
     const themeSwitch = document.getElementById('theme-switch');
     const currentTheme = localStorage.getItem('theme');
     
     // Check for saved theme preference
     if (currentTheme) {
         document.documentElement.setAttribute('data-theme', currentTheme);
+        
         if (currentTheme === 'light') {
             themeSwitch.checked = true;
         }
@@ -42,26 +54,40 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // ===== Mobile Navigation =====
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
-    const navItems = document.querySelectorAll('.nav-link');
+    // =============================================
+    //              Navigation
+    // =============================================
+    const navbar = document.querySelector('.navbar');
+    const hamburger = document.querySelector('.navbar-hamburger');
+    const navbarMenu = document.querySelector('.navbar-menu');
+    const navbarLinks = document.querySelectorAll('.navbar-link');
     
     // Toggle mobile menu
     hamburger.addEventListener('click', function() {
         this.classList.toggle('active');
-        navLinks.classList.toggle('active');
+        navbarMenu.classList.toggle('active');
     });
     
-    // Close mobile menu when clicking a nav item
-    navItems.forEach(item => {
-        item.addEventListener('click', function() {
+    // Close mobile menu when clicking a link
+    navbarLinks.forEach(link => {
+        link.addEventListener('click', function() {
             hamburger.classList.remove('active');
-            navLinks.classList.remove('active');
+            navbarMenu.classList.remove('active');
         });
     });
     
-    // ===== Smooth Scrolling =====
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+    
+    // =============================================
+    //              Smooth Scrolling
+    // =============================================
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             e.preventDefault();
@@ -78,41 +104,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // ===== Header Scroll Effect =====
-    const header = document.querySelector('.header');
-    
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    });
-    
-    // ===== Active Nav Link on Scroll =====
-    const sections = document.querySelectorAll('section');
-    
-    window.addEventListener('scroll', function() {
-        let current = '';
-        
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop - 100;
-            const sectionHeight = section.offsetHeight;
-            
-            if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-                current = section.getAttribute('id');
-            }
-        });
-        
-        navItems.forEach(item => {
-            item.classList.remove('active');
-            if (item.getAttribute('href') === `#${current}`) {
-                item.classList.add('active');
-            }
-        });
-    });
-    
-    // ===== Back to Top Button =====
+    // =============================================
+    //              Back to Top Button
+    // =============================================
     const backToTopBtn = document.querySelector('.back-to-top');
     
     window.addEventListener('scroll', function() {
@@ -123,80 +117,45 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // ===== Skills Animation =====
-    const skillBars = document.querySelectorAll('.skill-progress');
+    // =============================================
+    //              Skills Animation
+    // =============================================
+    const skillProgressBars = document.querySelectorAll('.skill-progress');
     
-    function animateSkills() {
-        skillBars.forEach(bar => {
-            const width = bar.getAttribute('data-width');
-            bar.style.width = '0';
-            setTimeout(() => {
-                bar.style.width = `${width}%`;
-            }, 100);
-        });
-    }
-    
-    // Animate skills when section is in view
-    const observerOptions = {
-        threshold: 0.2
-    };
-    
-    const skillsObserver = new IntersectionObserver((entries, observer) => {
+    // Animate skill bars when section is in view
+    const animateSkills = function(entries, observer) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                animateSkills();
+                skillProgressBars.forEach(bar => {
+                    const level = bar.getAttribute('data-level');
+                    bar.style.width = `${level}%`;
+                });
                 observer.unobserve(entry.target);
             }
         });
-    }, observerOptions);
+    };
     
-    const skillsSection = document.querySelector('.about-skills');
+    const skillsObserver = new IntersectionObserver(animateSkills, {
+        threshold: 0.2
+    });
+    
+    const skillsSection = document.querySelector('.skills-container');
     if (skillsSection) {
         skillsObserver.observe(skillsSection);
     }
     
-    // ===== Counter Animation =====
-    const counters = document.querySelectorAll('.stat-number');
-    const speed = 200;
-    
-    function animateCounters() {
-        counters.forEach(counter => {
-            const target = +counter.getAttribute('data-count');
-            const count = +counter.innerText;
-            const increment = target / speed;
-            
-            if (count < target) {
-                counter.innerText = Math.ceil(count + increment);
-                setTimeout(animateCounters, 1);
-            } else {
-                counter.innerText = target;
-            }
-        });
-    }
-    
-    // Animate counters when section is in view
-    const statsObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                animateCounters();
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-    
-    const statsSection = document.querySelector('.about-stats');
-    if (statsSection) {
-        statsObserver.observe(statsSection);
-    }
-    
-    // ===== Projects Filter =====
+    // =============================================
+    //              Projects Filter
+    // =============================================
     const filterButtons = document.querySelectorAll('.filter-btn');
     const projectCards = document.querySelectorAll('.project-card');
     
     filterButtons.forEach(button => {
         button.addEventListener('click', function() {
-            // Update active button
+            // Remove active class from all buttons
             filterButtons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
             this.classList.add('active');
             
             const filterValue = this.getAttribute('data-filter');
@@ -204,229 +163,293 @@ document.addEventListener('DOMContentLoaded', function() {
             // Filter projects
             projectCards.forEach(card => {
                 if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
-                    card.classList.add('active');
+                    card.style.display = 'block';
                 } else {
-                    card.classList.remove('active');
+                    card.style.display = 'none';
                 }
             });
         });
     });
     
-    // ===== Contact Form Validation =====
-    const form = document.getElementById('form');
-    const formSuccess = document.getElementById('form-success');
+    // =============================================
+    //              Contact Form Validation
+    // =============================================
+    const contactForm = document.getElementById('contactForm');
     
-    if (form) {
-        form.addEventListener('submit', function(e) {
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            const submitBtn = this.querySelector('.form-submit');
-            submitBtn.classList.add('sending');
+            let isValid = true;
             
-            // Simulate form submission
-            setTimeout(() => {
-                form.style.display = 'none';
-                formSuccess.style.display = 'block';
-                submitBtn.classList.remove('sending');
-                
-                // Reset form after 5 seconds
-                setTimeout(() => {
-                    form.reset();
-                    form.style.display = 'block';
-                    formSuccess.style.display = 'none';
-                }, 5000);
-            }, 1500);
+            // Validate name
+            const nameInput = document.getElementById('name');
+            const nameError = nameInput.nextElementSibling.nextElementSibling;
+            
+            if (nameInput.value.trim() === '') {
+                nameError.textContent = 'Name is required';
+                isValid = false;
+            } else if (nameInput.value.trim().length < 2) {
+                nameError.textContent = 'Name must be at least 2 characters';
+                isValid = false;
+            } else {
+                nameError.textContent = '';
+            }
+            
+            // Validate email
+            const emailInput = document.getElementById('email');
+            const emailError = emailInput.nextElementSibling.nextElementSibling;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            if (emailInput.value.trim() === '') {
+                emailError.textContent = 'Email is required';
+                isValid = false;
+            } else if (!emailRegex.test(emailInput.value.trim())) {
+                emailError.textContent = 'Please enter a valid email';
+                isValid = false;
+            } else {
+                emailError.textContent = '';
+            }
+            
+            // Validate subject
+            const subjectInput = document.getElementById('subject');
+            const subjectError = subjectInput.nextElementSibling.nextElementSibling;
+            
+            if (subjectInput.value.trim() === '') {
+                subjectError.textContent = 'Subject is required';
+                isValid = false;
+            } else if (subjectInput.value.trim().length < 5) {
+                subjectError.textContent = 'Subject must be at least 5 characters';
+                isValid = false;
+            } else {
+                subjectError.textContent = '';
+            }
+            
+            // Validate message
+            const messageInput = document.getElementById('message');
+            const messageError = messageInput.nextElementSibling.nextElementSibling;
+            
+            if (messageInput.value.trim() === '') {
+                messageError.textContent = 'Message is required';
+                isValid = false;
+            } else if (messageInput.value.trim().length < 10) {
+                messageError.textContent = 'Message must be at least 10 characters';
+                isValid = false;
+            } else {
+                messageError.textContent = '';
+            }
+            
+            // If form is valid, submit it
+            if (isValid) {
+                // In a real application, you would send the form data to a server here
+                alert('Thank you for your message! I will get back to you soon.');
+                this.reset();
+            }
         });
     }
     
-    // ===== Current Year in Footer =====
+    // =============================================
+    //              Current Year
+    // =============================================
     const yearElement = document.getElementById('year');
     if (yearElement) {
         yearElement.textContent = new Date().getFullYear();
     }
     
-    // ===== Animate Elements on Scroll =====
-    const animateOnScroll = function() {
-        const elements = document.querySelectorAll('.hero-text, .hero-image, .about-text, .about-skills, .project-card, .contact-info, .contact-form');
-        
-        elements.forEach(element => {
-            const elementPosition = element.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
-            
-            if (elementPosition < windowHeight - 100) {
-                element.classList.add('animate');
-            }
-        });
-    };
-    
-    // Initial check
-    animateOnScroll();
-    
-    // Check on scroll
-    window.addEventListener('scroll', animateOnScroll);
-    
-    // ===== Typing Animation for Hero Text =====
-    const heroTitle = document.querySelector('.hero-title');
-    const originalText = heroTitle.textContent;
-    let i = 0;
-    
-    function typeWriter() {
-        if (i < originalText.length) {
-            heroTitle.textContent = originalText.substring(0, i + 1);
-            i++;
-            setTimeout(typeWriter, 100);
-        }
-    }
-    
-    // Start typing animation after 1 second
-    setTimeout(() => {
-        heroTitle.textContent = '';
-        typeWriter();
-    }, 1000);
-    
-    // ===== Tooltip for Tech Icons =====
-    const techIcons = document.querySelectorAll('.tech-icon');
-    
-    techIcons.forEach(icon => {
-        const tooltip = document.createElement('span');
-        tooltip.className = 'tooltip';
-        
-        if (icon.querySelector('.fa-roblox')) {
-            tooltip.textContent = 'Roblox Studio';
-        } else if (icon.querySelector('.fa-lua')) {
-            tooltip.textContent = 'Lua Scripting';
-        } else if (icon.querySelector('.fa-gamepad')) {
-            tooltip.textContent = 'Game Design';
-        } else if (icon.querySelector('.fa-code')) {
-            tooltip.textContent = 'Programming';
-        }
-        
-        icon.appendChild(tooltip);
-        
-        icon.addEventListener('mouseenter', function() {
-            tooltip.style.opacity = '1';
-            tooltip.style.transform = 'translateY(0)';
-        });
-        
-        icon.addEventListener('mouseleave', function() {
-            tooltip.style.opacity = '0';
-            tooltip.style.transform = 'translateY(10px)';
-        });
-    });
-    
-    // ===== Project Card Hover Effect =====
-    projectCards.forEach(card => {
-        const image = card.querySelector('.project-image img');
-        const overlay = card.querySelector('.project-overlay');
-        
-        card.addEventListener('mousemove', function(e) {
-            const x = e.offsetX;
-            const y = e.offsetY;
-            const rotateY = (-1/5 * x + 20);
-            const rotateX = (1/5 * y - 20);
-            
-            image.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-            overlay.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            image.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
-            overlay.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
-        });
-    });
-    
-    // ===== Scroll Reveal Animation =====
+    // =============================================
+    //              Scroll Reveal Animation
+    // =============================================
     const scrollReveal = ScrollReveal({
         origin: 'bottom',
-        distance: '50px',
+        distance: '60px',
         duration: 1000,
         delay: 200,
         reset: true
     });
     
-    scrollReveal.reveal('.hero-text, .hero-image', { origin: 'left' });
-    scrollReveal.reveal('.about-text, .about-skills', { interval: 200 });
+    scrollReveal.reveal('.hero-content, .hero-image', { origin: 'left' });
+    scrollReveal.reveal('.section-header', { origin: 'top' });
+    scrollReveal.reveal('.about-image, .about-text', { interval: 200 });
     scrollReveal.reveal('.project-card', { interval: 200 });
     scrollReveal.reveal('.contact-info, .contact-form', { origin: 'left', interval: 200 });
     
-    // ===== Particle Background for Hero Section =====
-    const heroSection = document.querySelector('.hero');
-    if (heroSection) {
-        const canvas = document.createElement('canvas');
-        canvas.className = 'particles-background';
-        heroSection.appendChild(canvas);
-        
-        const ctx = canvas.getContext('2d');
-        canvas.width = heroSection.offsetWidth;
-        canvas.height = heroSection.offsetHeight;
-        
-        const particles = [];
-        const particleCount = 50;
-        
-        class Particle {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 3 + 1;
-                this.speedX = Math.random() * 2 - 1;
-                this.speedY = Math.random() * 2 - 1;
-                this.color = `rgba(108, 92, 231, ${Math.random() * 0.5 + 0.1})`;
-            }
-            
-            update() {
-                this.x += this.speedX;
-                this.y += this.speedY;
-                
-                if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
-                if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
-            }
-            
-            draw() {
-                ctx.fillStyle = this.color;
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
-            }
+    // =============================================
+    //              Initialize Animation on Skills
+    // =============================================
+    // Trigger the skills animation on page load if skills are already in view
+    const checkSkillsInView = () => {
+        const skillsRect = skillsSection.getBoundingClientRect();
+        if (
+            skillsRect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+            skillsRect.bottom >= 0
+        ) {
+            skillProgressBars.forEach(bar => {
+                const level = bar.getAttribute('data-level');
+                bar.style.width = `${level}%`;
+            });
+            window.removeEventListener('scroll', checkSkillsInView);
         }
-        
-        function initParticles() {
-            for (let i = 0; i < particleCount; i++) {
-                particles.push(new Particle());
-            }
+    };
+    
+    window.addEventListener('scroll', checkSkillsInView);
+    checkSkillsInView(); // Check immediately in case skills are already in view
+});
+
+// =============================================
+//              Helper Functions
+// =============================================
+
+/**
+ * Debounce function to limit how often a function is called
+ * @param {Function} func - The function to debounce
+ * @param {number} wait - The time to wait in milliseconds
+ * @returns {Function} - The debounced function
+ */
+function debounce(func, wait) {
+    let timeout;
+    return function() {
+        const context = this, args = arguments;
+        clearTimeout(timeout);
+        timeout = setTimeout(() => {
+            func.apply(context, args);
+        }, wait);
+    };
+}
+
+/**
+ * Throttle function to limit how often a function is called
+ * @param {Function} func - The function to throttle
+ * @param {number} limit - The time limit in milliseconds
+ * @returns {Function} - The throttled function
+ */
+function throttle(func, limit) {
+    let lastFunc;
+    let lastRan;
+    return function() {
+        const context = this;
+        const args = arguments;
+        if (!lastRan) {
+            func.apply(context, args);
+            lastRan = Date.now();
+        } else {
+            clearTimeout(lastFunc);
+            lastFunc = setTimeout(function() {
+                if ((Date.now() - lastRan) >= limit) {
+                    func.apply(context, args);
+                    lastRan = Date.now();
+                }
+            }, limit - (Date.now() - lastRan));
         }
+    };
+}
+
+// =============================================
+//              ScrollReveal Initialization
+// =============================================
+// This is a simplified version of ScrollReveal for demonstration purposes
+// In a real project, you would use the actual ScrollReveal library
+const ScrollReveal = (function() {
+    function ScrollReveal(options) {
+        this.options = options || {};
+        this.defaults = {
+            origin: 'bottom',
+            distance: '60px',
+            duration: 1000,
+            delay: 200,
+            reset: false
+        };
+        this.settings = Object.assign({}, this.defaults, this.options);
+        this.elements = [];
+    }
+    
+    ScrollReveal.prototype.reveal = function(selector, config) {
+        const elements = document.querySelectorAll(selector);
+        const settings = config ? Object.assign({}, this.settings, config) : this.settings;
         
-        function animateParticles() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        elements.forEach((el, index) => {
+            this.elements.push({
+                element: el,
+                settings: settings,
+                revealed: false
+            });
             
-            for (let i = 0; i < particles.length; i++) {
-                particles[i].update();
-                particles[i].draw();
+            // Set initial styles
+            el.style.transition = `all ${settings.duration}ms ease ${settings.delay + (index * (settings.interval || 0))}ms`;
+            el.style.opacity = '0';
+            
+            switch(settings.origin) {
+                case 'top':
+                    el.style.transform = `translateY(-${settings.distance})`;
+                    break;
+                case 'bottom':
+                    el.style.transform = `translateY(${settings.distance})`;
+                    break;
+                case 'left':
+                    el.style.transform = `translateX(-${settings.distance})`;
+                    break;
+                case 'right':
+                    el.style.transform = `translateX(${settings.distance})`;
+                    break;
+                default:
+                    el.style.transform = `translateY(${settings.distance})`;
+            }
+        });
+        
+        this.checkReveal();
+        window.addEventListener('scroll', throttle(() => this.checkReveal(), 100));
+        window.addEventListener('resize', debounce(() => this.checkReveal(), 100));
+    };
+    
+    ScrollReveal.prototype.checkReveal = function() {
+        const windowHeight = window.innerHeight;
+        const windowTop = window.scrollY;
+        const windowBottom = windowTop + windowHeight;
+        
+        this.elements.forEach(item => {
+            if (!item.revealed) {
+                const element = item.element;
+                const elementTop = element.getBoundingClientRect().top + windowTop;
+                const elementBottom = elementTop + element.offsetHeight;
                 
-                for (let j = i; j < particles.length; j++) {
-                    const dx = particles[i].x - particles[j].x;
-                    const dy = particles[i].y - particles[j].y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
+                if (elementBottom >= windowTop && elementTop <= windowBottom) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translate(0, 0)';
+                    item.revealed = true;
                     
-                    if (distance < 100) {
-                        ctx.strokeStyle = `rgba(108, 92, 231, ${1 - distance / 100})`;
-                        ctx.lineWidth = 0.5;
-                        ctx.beginPath();
-                        ctx.moveTo(particles[i].x, particles[i].y);
-                        ctx.lineTo(particles[j].x, particles[j].y);
-                        ctx.stroke();
+                    if (!item.settings.reset) {
+                        this.elements = this.elements.filter(el => el !== item);
                     }
                 }
+            } else if (item.settings.reset && item.revealed) {
+                const element = item.element;
+                const elementTop = element.getBoundingClientRect().top + windowTop;
+                const elementBottom = elementTop + element.offsetHeight;
+                
+                if (elementBottom < windowTop || elementTop > windowBottom) {
+                    element.style.opacity = '0';
+                    
+                    switch(item.settings.origin) {
+                        case 'top':
+                            element.style.transform = `translateY(-${item.settings.distance})`;
+                            break;
+                        case 'bottom':
+                            element.style.transform = `translateY(${item.settings.distance})`;
+                            break;
+                        case 'left':
+                            element.style.transform = `translateX(-${item.settings.distance})`;
+                            break;
+                        case 'right':
+                            element.style.transform = `translateX(${item.settings.distance})`;
+                            break;
+                        default:
+                            element.style.transform = `translateY(${item.settings.distance})`;
+                    }
+                    
+                    item.revealed = false;
+                }
             }
-            
-            requestAnimationFrame(animateParticles);
-        }
-        
-        initParticles();
-        animateParticles();
-        
-        window.addEventListener('resize', function() {
-            canvas.width = heroSection.offsetWidth;
-            canvas.height = heroSection.offsetHeight;
         });
-    }
-});
+    };
+    
+    return ScrollReveal;
+})();
