@@ -1,429 +1,57 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MEPXDEV | Next-Gen Development Solutions</title>
-    <meta name="description" content="Pushing the boundaries of web technology with innovative solutions">
-    <link rel="stylesheet" href="style.css">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&family=Exo+2:wght@100;400;900&display=swap" as="style">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MepxDev – Creator & Developer</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <!-- Particle Background Canvas -->
-    <canvas id="particleCanvas"></canvas>
-    
-    <!-- Preloader -->
-    <div class="preloader">
-        <div class="preloader-inner">
-            <div class="loading-spinner">
-                <div class="spinner-sector spinner-sector-red"></div>
-                <div class="spinner-sector spinner-sector-blue"></div>
-                <div class="spinner-sector spinner-sector-green"></div>
-            </div>
-            <h2 class="preloader-text">INITIALIZING MEPXDEV SYSTEMS</h2>
-            <div class="progress-bar">
-                <div class="progress"></div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Main Navigation -->
-    <nav class="main-nav">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <span class="logo-text">MEPXDEV</span>
-                <span class="logo-cursor"></span>
-            </div>
-            <div class="nav-links">
-                <a href="#services" class="nav-link" data-text="SERVICES">SERVICES</a>
-                <a href="#work" class="nav-link" data-text="WORK">WORK</a>
-                <a href="#about" class="nav-link" data-text="ABOUT">ABOUT</a>
-                <a href="#contact" class="nav-link" data-text="CONTACT">CONTACT</a>
-            </div>
-            <div class="nav-actions">
-                <button class="theme-toggle">
-                    <i class="fas fa-moon"></i>
-                    <i class="fas fa-sun"></i>
-                </button>
-                <button class="menu-toggle">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </button>
-            </div>
-        </div>
+  <header>
+    <div class="logo">Mepx<span>Dev</span></div>
+    <nav>
+      <ul>
+        <li><a href="#about">About Me</a></li>
+        <li><a href="#work">What I Do</a></li>
+        <li><a href="https://chromastudiorbx.com" target="_blank">Chroma Studio</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </nav>
-    
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">
-                <span class="title-line">REDEFINING</span>
-                <span class="title-line">DIGITAL</span>
-                <span class="title-line">EXPERIENCES</span>
-            </h1>
-            <p class="hero-subtitle">We craft immersive, high-performance web solutions that push boundaries and captivate audiences.</p>
-            <div class="hero-cta">
-                <button class="cta-primary">START YOUR PROJECT</button>
-                <button class="cta-secondary">EXPLORE OUR WORK</button>
-            </div>
-        </div>
-        <div class="hero-visual">
-            <div class="floating-cube">
-                <div class="cube-face cube-front"></div>
-                <div class="cube-face cube-back"></div>
-                <div class="cube-face cube-right"></div>
-                <div class="cube-face cube-left"></div>
-                <div class="cube-face cube-top"></div>
-                <div class="cube-face cube-bottom"></div>
-            </div>
-            <div class="hero-globe">
-                <canvas id="globeCanvas"></canvas>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Services Section -->
-    <section id="services" class="services">
-        <div class="section-header">
-            <h2 class="section-title">OUR EXPERTISE</h2>
-            <p class="section-subtitle">Cutting-edge solutions tailored to your needs</p>
-        </div>
-        <div class="services-grid">
-            <!-- Service items will be dynamically generated via JS -->
-        </div>
-    </section>
-    
-    <!-- Work Showcase Section -->
-    <section id="work" class="work-showcase">
-        <div class="section-header">
-            <h2 class="section-title">OUR WORK</h2>
-            <p class="section-subtitle">Selected projects that demonstrate our capabilities</p>
-        </div>
-        
-        <div class="work-container">
-            <div class="work-carousel">
-                <!-- Project items will be dynamically added via JS -->
-            </div>
-            
-            <div class="work-controls">
-                <button class="work-prev">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <div class="work-dots"></div>
-                <button class="work-next">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-            </div>
-        </div>
-        
-        <div class="work-details">
-            <div class="detail-container">
-                <button class="detail-close">
-                    <i class="fas fa-times"></i>
-                </button>
-                <div class="detail-content">
-                    <h3 class="detail-title">Project Title</h3>
-                    <div class="detail-meta">
-                        <span class="detail-category">Web Development</span>
-                        <span class="detail-date">2023</span>
-                    </div>
-                    <p class="detail-description">Project description goes here with details about the technologies used and challenges overcome.</p>
-                    <div class="detail-tech">
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">Node.js</span>
-                        <span class="tech-tag">Three.js</span>
-                    </div>
-                    <div class="detail-images">
-                        <div class="detail-image active" style="background-image: url('https://via.placeholder.com/800x500')"></div>
-                        <div class="detail-image" style="background-image: url('https://via.placeholder.com/800x500')"></div>
-                        <div class="detail-image" style="background-image: url('https://via.placeholder.com/800x500')"></div>
-                    </div>
-                    <div class="detail-links">
-                        <a href="#" class="detail-link" target="_blank">
-                            <i class="fas fa-external-link-alt"></i> Live Demo
-                        </a>
-                        <a href="#" class="detail-link" target="_blank">
-                            <i class="fab fa-github"></i> View Code
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+  </header>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="section-header">
-            <h2 class="section-title">ABOUT US</h2>
-            <p class="section-subtitle">The minds behind the innovation</p>
-        </div>
-        
-        <div class="about-container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h3 class="about-heading">Pushing boundaries since 2018</h3>
-                    <p>MEPXDEV was founded with a singular vision: to create digital experiences that don't just meet expectations, but redefine them. We combine technical excellence with creative vision to deliver solutions that stand out in today's crowded digital landscape.</p>
-                    
-                    <div class="about-stats">
-                        <div class="stat-item">
-                            <div class="stat-number" data-count="150">0</div>
-                            <div class="stat-label">Projects Completed</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number" data-count="42">0</div>
-                            <div class="stat-label">Happy Clients</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number" data-count="8">0</div>
-                            <div class="stat-label">Team Members</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number" data-count="5">0</div>
-                            <div class="stat-label">Years Experience</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="about-visual">
-                    <div class="timeline">
-                        <div class="timeline-item active">
-                            <div class="timeline-date">2018</div>
-                            <div class="timeline-content">
-                                <h4>Founded</h4>
-                                <p>Started as a small team of passionate developers</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-date">2019</div>
-                            <div class="timeline-content">
-                                <h4>First Major Client</h4>
-                                <p>Landed our first enterprise-level project</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-date">2020</div>
-                            <div class="timeline-content">
-                                <h4>Expanded Services</h4>
-                                <p>Added UI/UX design and mobile development</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-date">2022</div>
-                            <div class="timeline-content">
-                                <h4>New Office</h4>
-                                <p>Opened our physical headquarters</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-date">2023</div>
-                            <div class="timeline-content">
-                                <h4>Current</h4>
-                                <p>Working with clients worldwide</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="team-section">
-                <h3 class="team-heading">Meet The Team</h3>
-                <div class="team-grid">
-                    <!-- Team members will be added via JS -->
-                </div>
-            </div>
-        </div>
-    </section>
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Hi, I'm <span>MepxDev</span></h1>
+      <p>Roblox creator, game designer, and content-driven developer from Germany.</p>
+      <a href="#work" class="btn">Explore My Work</a>
+    </div>
+  </section>
 
-    <!-- Tech Stack Section -->
-    <section class="tech-stack">
-        <div class="section-header">
-            <h2 class="section-title">OUR TECH STACK</h2>
-            <p class="section-subtitle">Tools and technologies we work with</p>
-        </div>
-        
-        <div class="tech-container">
-            <div class="tech-categories">
-                <button class="tech-category active" data-category="frontend">Frontend</button>
-                <button class="tech-category" data-category="backend">Backend</button>
-                <button class="tech-category" data-category="design">Design</button>
-                <button class="tech-category" data-category="tools">Tools</button>
-            </div>
-            
-            <div class="tech-items">
-                <!-- Tech items will be added via JS -->
-            </div>
-        </div>
-    </section>
+  <section id="about" class="about">
+    <h2>About Me</h2>
+    <p>I'm Henry, a 17-year-old Roblox developer based in Germany. I focus on creating fun, smart, and creative content for players around the world. I'm also the founder of <a href="https://chromastudiorbx.com" target="_blank">Chroma Studio</a>, where I build bigger projects with my team.</p>
+  </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="section-header">
-            <h2 class="section-title">GET IN TOUCH</h2>
-            <p class="section-subtitle">Let's create something amazing together</p>
-        </div>
-        
-        <div class="contact-container">
-            <div class="contact-info">
-                <div class="info-card">
-                    <div class="info-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <div class="info-content">
-                        <h4>Email Us</h4>
-                        <a href="mailto:hello@mepxdev.com">hello@mepxdev.com</a>
-                    </div>
-                </div>
-                
-                <div class="info-card">
-                    <div class="info-icon">
-                        <i class="fas fa-phone-alt"></i>
-                    </div>
-                    <div class="info-content">
-                        <h4>Call Us</h4>
-                        <a href="tel:+1234567890">+1 (234) 567-890</a>
-                    </div>
-                </div>
-                
-                <div class="info-card">
-                    <div class="info-icon">
-                        <i class="fas fa-map-marker-alt"></i>
-                    </div>
-                    <div class="info-content">
-                        <h4>Visit Us</h4>
-                        <address>123 Tech Street<br>San Francisco, CA 94107</address>
-                    </div>
-                </div>
-                
-                <div class="contact-social">
-                    <a href="#" class="social-link">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="#" class="social-link">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="#" class="social-link">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="#" class="social-link">
-                        <i class="fab fa-dribbble"></i>
-                    </a>
-                </div>
-            </div>
-            
-            <div class="contact-form">
-                <form id="mainContactForm">
-                    <div class="form-group">
-                        <input type="text" id="name" name="name" required>
-                        <label for="name">Your Name</label>
-                        <div class="form-underline"></div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <input type="email" id="email" name="email" required>
-                        <label for="email">Your Email</label>
-                        <div class="form-underline"></div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <input type="text" id="subject" name="subject" required>
-                        <label for="subject">Subject</label>
-                        <div class="form-underline"></div>
-                    </div>
-                    
-                    <div class="form-group">
-                        <textarea id="message" name="message" rows="5" required></textarea>
-                        <label for="message">Your Message</label>
-                        <div class="form-underline"></div>
-                    </div>
-                    
-                    <button type="submit" class="form-submit">
-                        <span>SEND MESSAGE</span>
-                        <div class="submit-loader">
-                            <div class="loader-dot"></div>
-                            <div class="loader-dot"></div>
-                            <div class="loader-dot"></div>
-                        </div>
-                    </button>
-                </form>
-                
-                <div class="form-success">
-                    <div class="success-icon">
-                        <i class="fas fa-check"></i>
-                    </div>
-                    <h3>Message Sent!</h3>
-                    <p>Thank you for reaching out. We'll get back to you soon.</p>
-                    <button class="success-reset">Send Another Message</button>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Footer -->
-    <footer class="main-footer">
-        <div class="footer-container">
-            <div class="footer-logo">
-                <span class="logo-text">MEPXDEV</span>
-                <span class="logo-cursor"></span>
-            </div>
-            
-            <div class="footer-links">
-                <div class="footer-column">
-                    <h4 class="footer-title">Quick Links</h4>
-                    <ul>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#work">Our Work</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h4 class="footer-title">Services</h4>
-                    <ul>
-                        <li><a href="#">Web Development</a></li>
-                        <li><a href="#">Mobile Apps</a></li>
-                        <li><a href="#">UI/UX Design</a></li>
-                        <li><a href="#">Digital Strategy</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h4 class="footer-title">Connect</h4>
-                    <ul>
-                        <li><a href="#">Twitter</a></li>
-                        <li><a href="#">LinkedIn</a></li>
-                        <li><a href="#">GitHub</a></li>
-                        <li><a href="#">Dribbble</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-column">
-                    <h4 class="footer-title">Legal</h4>
-                    <ul>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Cookie Policy</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="footer-bottom">
-                <p class="copyright">&copy; 2023 MEPXDEV. All rights reserved.</p>
-                <div class="footer-actions">
-                    <button class="back-to-top">
-                        <i class="fas fa-arrow-up"></i> Back to Top
-                    </button>
-                </div>
-            </div>
-        </div>
-    </footer>
-    
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-    <script src="main.js"></script>
+  <section id="work" class="work">
+    <h2>What I Do</h2>
+    <div class="work-grid">
+      <div class="work-item">🎮 Game Development</div>
+      <div class="work-item">🎨 UI & Visual Design</div>
+      <div class="work-item">🧠 Creative Content Creation</div>
+      <div class="work-item">🌐 Studio Leadership @ Chroma</div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact</h2>
+    <p>Want to collaborate or have a question? DM me on Discord: <strong>@mepxdev</strong> or email me at <strong>mepxdev@gmail.com</strong>.</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 MepxDev – Built with ❤️ in Germany</p>
+  </footer>
+
+  <script src="main.js"></script>
 </body>
 </html>
+
