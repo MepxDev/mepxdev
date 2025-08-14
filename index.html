@@ -346,8 +346,21 @@
                         <span class="input-border"></span>
                     </div>
                     <div class="form-group">
+                        <input type="tel" id="phone" name="phone" required>
+                        <label for="phone">Your Phone Number</label>
+                        <span class="input-border"></span>
+                    </div>
+                    <div class="form-group">
                         <textarea id="message" name="message" rows="4" required></textarea>
                         <label for="message">Your Message</label>
+                        <span class="input-border"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="price" name="price" required 
+                        placeholder="e.g., $50, 50%, 100 Robux" 
+                        pattern="^(\$?\d+(\.\d{1,2})?|\d+%|\d+\s*Robux)$" 
+                        title="Enter a number with $, %, or Robux">
+                        <label for="price">Price</label>
                         <span class="input-border"></span>
                     </div>
                     <button type="submit" class="btn btn-primary btn-glow">
